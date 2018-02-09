@@ -15,14 +15,20 @@ function config($routeProvider)
         .when(
             '/',
             {
-                redirectTo: '/Example'
+                redirectTo: '/Home'
             })
         .when(
-            '/Example',
+            '/Home',
             {
-                templateUrl: rootViewTemplates + '/Frontend/Templates/Example.html',
+                templateUrl: rootViewTemplates + '/Frontend/Templates/Home.html',
                 controller: 'ExampleController'
             })
+        .when(
+        '/About',
+            {
+                templateUrl: rootViewTemplates + '/Frontend/Templates/About.html'
+            }
+        )
         .otherwise(
             {
                 redirectTo: '/'
