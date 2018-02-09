@@ -7,7 +7,7 @@ if (root == '/')
     rootViewTemplates = '..';
 }
 
-var app = angular.module('TemplateApp', ['ngRoute']); // -> _Layout.cshtml <html ng-app="TemplateApp">
+var app = angular.module('FinderApp', ['ngRoute']);
 
 function config($routeProvider)
 {

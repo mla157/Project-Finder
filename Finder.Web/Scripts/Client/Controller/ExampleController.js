@@ -1,4 +1,4 @@
-﻿var app = angular.module('TemplateApp'); // -> _Layout.cshtml <html ng-app="TemplateApp">
+﻿var app = angular.module('FinderApp'); // -> _Layout.cshtml <html ng-app="TemplateApp">
 
 app.controller("ExampleController", ExampleController);
 
