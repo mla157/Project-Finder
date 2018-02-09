@@ -161,7 +161,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Frontend\Templates\Example.html" />
+    <Content Include="Frontend\Templates\About.html" />
+    <Content Include="Frontend\Templates\Home.html" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Client\Configuration\app.js" />
     <Content Include="Scripts\Client\Controller\ExampleController.js" />

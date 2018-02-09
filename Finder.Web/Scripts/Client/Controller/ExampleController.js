@@ -10,7 +10,7 @@ function ExampleController($scope, $http, UrlService)
 
     $scope.getExampleText = function()
     {
-        $http.get(UrlService.forApi('Examples')).then(function(response)
+        $http.get(UrlService.forApi('Finder')).then(function(response)
         {
             if (!response.data)
             {
