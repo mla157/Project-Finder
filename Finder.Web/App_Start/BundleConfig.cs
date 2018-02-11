@@ -26,7 +26,7 @@
             bundles.Add(new ScriptBundle("~/bundles/client").Include(
                 "~/Scripts/Client/Configuration/app.js",
                 "~/Scripts/Client/Services/UrlService.js",
-                "~/Scripts/Client/Controller/MovieController.js"));
+                "~/Scripts/Client/Controller/MoviesController.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",

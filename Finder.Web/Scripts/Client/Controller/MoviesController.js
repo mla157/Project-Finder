@@ -1,10 +1,10 @@
 ﻿var app = angular.module('FinderApp'); // -> _Layout.cshtml <html ng-app="TemplateApp">
 
-app.controller("MovieController", MovieController);
+app.controller("MoviesController", MoviesController);
 
-MovieController.$inject = ["$scope", "$http", "UrlService"];
+MoviesController.$inject = ["$scope", "$http", "UrlService"];
 
-function MovieController($scope, $http, UrlService)
+function MoviesController($scope, $http, UrlService)
 {
     $scope.movie = {
         titleName: null,

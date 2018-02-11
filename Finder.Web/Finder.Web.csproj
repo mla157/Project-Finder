@@ -165,7 +165,7 @@
     <Content Include="Frontend\Templates\Home.html" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Client\Configuration\app.js" />
-    <Content Include="Scripts\Client\Controller\MovieController.js" />
+    <Content Include="Scripts\Client\Controller\MoviesController.js" />
     <Content Include="Scripts\Client\Services\UrlService.js" />
     <Content Include="Scripts\Framework\angular-route.js" />
     <Content Include="Scripts\Framework\angular-route.min.js" />
