@@ -12,7 +12,7 @@ function MovieController($scope, $http, UrlService)
         releaseDate: null
     };
 
-    $scope.getFilm = function()
+    $scope.getMovie = function()
     {
         $http.get(UrlService.forApi('Movies')).then(function(response)
         {
@@ -20,5 +20,5 @@ function MovieController($scope, $http, UrlService)
         });
     };
 
-    $scope.getFilm();
+    $scope.getMovie();
 }
