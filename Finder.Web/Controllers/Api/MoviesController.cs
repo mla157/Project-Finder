@@ -8,7 +8,7 @@ using Finder.Core.Models;
 
 namespace Finder.Web.Controllers.Api
 {
-    public class MovieController : ApiController
+    public class MoviesController : ApiController
     {
         public Movie Get()
         {
