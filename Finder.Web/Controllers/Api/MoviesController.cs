@@ -12,10 +12,12 @@ namespace Finder.Web.Controllers.Api
     {
         public Movie Get()
         {
-            var testMovie = new Movie();
-            testMovie.titleName = "Sharknado 3";
-            testMovie.description = "Beste wo gibt!";
-            testMovie.releaseDate = "21.02.2017";
+            var testMovie = new Movie
+                            {
+                                titleName = "Sharknado 3",
+                                description = "Beste wo gibt!",
+                                releaseDate = "21.02.2017"
+                            };
 
             return testMovie;
         }
