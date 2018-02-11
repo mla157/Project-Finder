@@ -1,1 +1,26 @@
-﻿{{movie.titleName}}
+﻿<table style="width:100%">
+    <tr>
+        <th>Title</th>
+        <th>Release Date</th> 
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>{{movie.titleName}}</td>
+        <td>{{movie.releaseDate}}</td> 
+        <td>{{movie.description}}</td>
+    </tr>
+</table>
+
+<style>
+    table, th , td  {
+        border: 1px solid grey;
+        border-collapse: collapse;
+        padding: 5px;
+    }
+    table tr:nth-child(odd) {
+        background-color: #f1f1f1;
+    }
+    table tr:nth-child(even) {
+        background-color: #ffffff;
+    }
+</style>
