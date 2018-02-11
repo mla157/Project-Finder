@@ -6,22 +6,19 @@ MovieController.$inject = ["$scope", "$http", "UrlService"];
 
 function MovieController($scope, $http, UrlService)
 {
-    $scope.status = 'Please wait';
+    $scope.movie = {
+        titleName: null,
+        description: null,
+        releaseDate: null
+    };
 
-    $scope.getExampleText = function()
+    $scope.getFilm = function()
     {
-        $http.get(UrlService.forApi('Movie')).then(function(response)
+        $http.get(UrlService.forApi('Movies')).then(function(response)
         {
-            if (!response.data)
-            {
-                alert('Something went wrong!');
-            }
-
-            $scope.testMovie = response.data;
-        {
-            alert('Error!');
+            $scope.movie = response.data;
         });
     };
 
-    $scope.getExampleText();
+    $scope.getFilm();
 }

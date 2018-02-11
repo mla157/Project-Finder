@@ -10,7 +10,8 @@ namespace Finder.Web.Controllers.Api
 {
     public class MoviesController : ApiController
     {
-        public Movie Get()
+        //In this method the connection to DB will be initialized and the movie date will be fetched and returned to the Frontend
+        public HttpResponseMessage Get()
         {
             var testMovie = new Movie
                             {
@@ -19,7 +20,7 @@ namespace Finder.Web.Controllers.Api
                                 releaseDate = "21.02.2017"
                             };
 
-            return testMovie;
+            return this.Request.CreateResponse(HttpStatusCode.OK, testMovie);
         }
     }
 }
