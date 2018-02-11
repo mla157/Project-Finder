@@ -149,7 +149,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\Api\FinderController.cs" />
+    <Compile Include="Controllers\Api\MovieController.cs" />
     <Compile Include="Controllers\View\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -165,7 +165,7 @@
     <Content Include="Frontend\Templates\Home.html" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Client\Configuration\app.js" />
-    <Content Include="Scripts\Client\Controller\ExampleController.js" />
+    <Content Include="Scripts\Client\Controller\MovieController.js" />
     <Content Include="Scripts\Client\Services\UrlService.js" />
     <Content Include="Scripts\Framework\angular-route.js" />
     <Content Include="Scripts\Framework\angular-route.min.js" />
@@ -214,6 +214,12 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\Framework\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Finder.Core\Finder.Core.csproj">
+      <Project>{b8cbb7f7-82ba-48e3-b2e6-4dd67917057e}</Project>
+      <Name>Finder.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

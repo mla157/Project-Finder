@@ -21,7 +21,7 @@ function config($routeProvider)
             '/Home',
             {
                 templateUrl: rootViewTemplates + '/Frontend/Templates/Home.html',
-                controller: 'ExampleController'
+                controller: 'MovieController'
             })
         .when(
         '/About',
