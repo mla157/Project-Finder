@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <title>@(this.ViewBag.Title)</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -33,7 +33,7 @@
 <div class="container body-content">
     <br />
     <div ng-view>
-        @RenderBody()
+        @(this.RenderBody())
     </div>
     <hr />
     <footer>
@@ -45,6 +45,6 @@
 @Scripts.Render("~/bundles/bootstrap")
 @Scripts.Render("~/bundles/angular");
 @Scripts.Render("~/bundles/client");
-@RenderSection("scripts", required: false)
+@(this.RenderSection("scripts", required: false))
 </body>
 </html>
