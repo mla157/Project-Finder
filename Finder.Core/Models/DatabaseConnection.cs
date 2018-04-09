@@ -175,6 +175,11 @@ namespace Finder.Core.Models
             return columnNames;
         }
 
+        public static void test ()
+            {
+            return 0;
+}
+
 
     }
 }
