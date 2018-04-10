@@ -18,7 +18,7 @@ namespace Finder.Core.Models
         private string database;
         private string userId;
         private string password;
-
+        ///MeinKommentar
         /// <summary>
         /// Constructor
         /// </summary>
@@ -175,10 +175,10 @@ namespace Finder.Core.Models
             return columnNames;
         }
 
-        public static void test ()
-            {
-            return 0;
-}
+        public static void test()
+        {
+
+        }
 
 
     }
