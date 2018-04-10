@@ -18,7 +18,7 @@ namespace Finder.Core.Models
         private string database;
         private string userId;
         private string password;
-        ///MeinKommentar
+
         /// <summary>
         /// Constructor
         /// </summary>
