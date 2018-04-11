@@ -1,26 +1,14 @@
-﻿<table style="width:100%">
-    <tr>
-        <th>Title</th>
-        <th>Release Date</th> 
-        <th>Description</th>
-    </tr>
-    <tr>
-        <td>{{movie.titleName}}</td>
-        <td>{{movie.releaseDate}}</td> 
-        <td>{{movie.description}}</td>
-    </tr>
-</table>
+﻿<div class="text-center">
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Finder - Die Filmsuche</h1>
+            <p>Finden Sie Filme die zu Ihnen passen.</p>
+        </div>
+    </div>
 
-<style>
-    table, th , td  {
-        border: 1px solid grey;
-        border-collapse: collapse;
-        padding: 5px;
-    }
-    table tr:nth-child(odd) {
-        background-color: #f1f1f1;
-    }
-    table tr:nth-child(even) {
-        background-color: #ffffff;
-    }
-</style>
+    <button type="button" class="btn btn-primary">Action</button>
+    <button type="button" class="btn btn-secondary">Horror</button>
+    <button type="button" class="btn btn-success">Dokumentation</button>
+    <button type="button" class="btn btn-danger">Sci-Fi</button>
+    <button type="button" class="btn btn-warning">Humor</button>
+</div>
