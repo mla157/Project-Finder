@@ -16,3 +16,12 @@ C:\Repos\Github\Project-Finder\Finder\Finder.Core\obj\Debug\Finder.Core.csproj.C
 C:\Repos\Github\Project-Finder\Finder\Finder.Core\obj\Debug\Finder.Core.csproj.CopyComplete
 C:\Repos\Github\Project-Finder\Finder\Finder.Core\obj\Debug\Finder.Core.dll
 C:\Repos\Github\Project-Finder\Finder\Finder.Core\obj\Debug\Finder.Core.pdb
+E:\Git\Source\Repos\Project-Finder\Finder\Finder.Core\bin\Debug\Finder.Core.dll.config
+E:\Git\Source\Repos\Project-Finder\Finder\Finder.Core\bin\Debug\Finder.Core.dll
+E:\Git\Source\Repos\Project-Finder\Finder\Finder.Core\bin\Debug\Finder.Core.pdb
+E:\Git\Source\Repos\Project-Finder\Finder\Finder.Core\bin\Debug\MySql.Data.dll
+E:\Git\Source\Repos\Project-Finder\Finder\Finder.Core\obj\Debug\Finder.Core.csprojResolveAssemblyReference.cache
+E:\Git\Source\Repos\Project-Finder\Finder\Finder.Core\obj\Debug\Finder.Core.csproj.CoreCompileInputs.cache
+E:\Git\Source\Repos\Project-Finder\Finder\Finder.Core\obj\Debug\Finder.Core.csproj.CopyComplete
+E:\Git\Source\Repos\Project-Finder\Finder\Finder.Core\obj\Debug\Finder.Core.dll
+E:\Git\Source\Repos\Project-Finder\Finder\Finder.Core\obj\Debug\Finder.Core.pdb
