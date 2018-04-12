@@ -7,3 +7,12 @@ C:\Users\albrechtm\Desktop\Source\Finder\Finder.Core\obj\Debug\Finder.Core.cspro
 C:\Users\albrechtm\Desktop\Source\Finder\Finder.Core\obj\Debug\Finder.Core.csproj.CopyComplete
 C:\Users\albrechtm\Desktop\Source\Finder\Finder.Core\obj\Debug\Finder.Core.dll
 C:\Users\albrechtm\Desktop\Source\Finder\Finder.Core\obj\Debug\Finder.Core.pdb
+C:\Repos\Github\Project-Finder\Finder\Finder.Core\bin\Debug\Finder.Core.dll.config
+C:\Repos\Github\Project-Finder\Finder\Finder.Core\bin\Debug\Finder.Core.dll
+C:\Repos\Github\Project-Finder\Finder\Finder.Core\bin\Debug\Finder.Core.pdb
+C:\Repos\Github\Project-Finder\Finder\Finder.Core\bin\Debug\MySql.Data.dll
+C:\Repos\Github\Project-Finder\Finder\Finder.Core\obj\Debug\Finder.Core.csprojResolveAssemblyReference.cache
+C:\Repos\Github\Project-Finder\Finder\Finder.Core\obj\Debug\Finder.Core.csproj.CoreCompileInputs.cache
+C:\Repos\Github\Project-Finder\Finder\Finder.Core\obj\Debug\Finder.Core.csproj.CopyComplete
+C:\Repos\Github\Project-Finder\Finder\Finder.Core\obj\Debug\Finder.Core.dll
+C:\Repos\Github\Project-Finder\Finder\Finder.Core\obj\Debug\Finder.Core.pdb
