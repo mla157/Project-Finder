@@ -39,6 +39,18 @@ function config($routeProvider) {
             controller: 'MoviesController'
         }
         )
+        .when(
+        '/Login',
+        {
+            templateUrl: rootViewTemplates + '/Frontend/Templates/Login.html'
+        }
+        )
+        .when(
+        '/Register',
+        {
+            templateUrl: rootViewTemplates + '/Frontend/Templates/Register.html'
+        }
+        )
         .otherwise(
         {
             redirectTo: '/'

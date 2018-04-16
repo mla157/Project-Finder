@@ -163,7 +163,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Frontend\Templates\About.html" />
     <Content Include="Frontend\Templates\Home.html" />
+    <Content Include="Frontend\Templates\Login.html" />
     <Content Include="Frontend\Templates\Overview.html" />
+    <Content Include="Frontend\Templates\Register.html" />
     <Content Include="Frontend\Templates\User.html" />
     <Content Include="Global.asax" />
     <Content Include="ApplicationInsights.config">
