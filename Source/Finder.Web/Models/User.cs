@@ -17,11 +17,11 @@ namespace Finder.Web.Models
         //Constructor with initial upload to DB
         public User(String fN,String lN, String email,String Password, DateTime birth)
         {
-            this.Firstname.set(fN);
-            this.Lastname.set(lN);
-            this.Email.set(email);
-            this.Password.set(Password.GetHashCode);
-            this.Birthdate.set(birth);
+            this.Firstname=fN;
+            this.Lastname=lN;
+            this.Email=email;
+            this.Password=Password;
+            this.Birthdate=birth;
 
             this.Push();
         }
