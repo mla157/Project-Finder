@@ -51,6 +51,12 @@ function config($routeProvider) {
             templateUrl: rootViewTemplates + '/Frontend/Templates/Register.html'
         }
         )
+        .when(
+            '/Finder',
+            {
+                templateUrl: rootViewTemplates + '/Frontend/Templates/Finder.html'
+            }
+        )
         .otherwise(
         {
             redirectTo: '/'
