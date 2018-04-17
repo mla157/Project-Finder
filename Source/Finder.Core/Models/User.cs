@@ -69,7 +69,8 @@ namespace Finder.Core.Models
         private void Push()
         {
             String query = $@"INSERT INTO table_name (column1, column2, column3, ...) VALUES({this.Firstname}, {this.Lastname}, {this.Email}, {this.Password}, {this.Birthdate});";
-            Console.WriteLine(query);
+            DatabaseConnection q = new DatabaseConnection();
+            q.QueryInsert(query);
         }
 
     }

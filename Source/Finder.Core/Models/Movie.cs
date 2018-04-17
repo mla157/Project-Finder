@@ -10,10 +10,31 @@ namespace Finder.Core.Models
 {
     public class Movie
     {
-        public string titleName;
+        //movie properties
+        public String TitleName { get; set; }
 
-        public string description;
+        public String Description { get; set; }
 
-        public string releaseDate;
+        public DateTime ReleaseDate { get; set; }
+
+
+        //constructor for movie with initial upload to DB by calling Push-method
+        public Movie(String TitleName, String Description, DateTime ReleaseDate)
+        {
+
+            this.Description = Description;
+            this.ReleaseDate = ReleaseDate;
+            this.TitleName = TitleName;
+
+            this.Push();
+        }
+        
+        //pushing the movie to the DB
+        private void Push()
+        {
+            String query = $@"INSERT INTO table_name (column1, column2, column3, ...) VALUES({this.Description},{this.ReleaseDate},{this.TitleName});";
+            DatabaseConnection q = new DatabaseConnection();
+            q.QueryInsert(query);
+        }
     }
 }
