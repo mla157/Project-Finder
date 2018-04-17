@@ -8,20 +8,20 @@ namespace Finder.Web.Models
     //Claass for User creation
     public class User
     {
-        private String Firstname { get; set; }
-        private String Lastname { get; set; }
-        private String Email { get; set; }
-        private String Password { get; set; }
-        private DateTime Birthdate { get; set; }
+        private string FirstName { get; set; }
+        private string LastName { get; set; }
+        private string MailAdress { get; set; }
+        private string Password { get; set; }
+        private DateTime BirthDate { get; set; }
 
         //Constructor with initial upload to DB
-        public User(String fN,String lN, String email,String Password, DateTime birth)
+        public User(string firstName, string lastName, string mailAdress, string password, DateTime birthDate)
         {
-            this.Firstname=fN;
-            this.Lastname=lN;
-            this.Email=email;
-            this.Password=Password;
-            this.Birthdate=birth;
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.MailAdress = mailAdress;
+            this.Password = password;
+            this.BirthDate = birthDate;
 
             this.Push();
         }
@@ -29,8 +29,7 @@ namespace Finder.Web.Models
         //Push User to DB
         private void Push()
         {
-            Console.WriteLine(this.Lastname+", "+ this.Firstname);
+            Console.WriteLine(this.LastName+", "+ this.FirstName);
         }
-        
     }
 }
