@@ -19,6 +19,7 @@ function config($routeProvider) {
         '/Home',
         {
             templateUrl: rootViewTemplates + '/Frontend/Templates/Home.html',
+            controller: 'HomeController'
         })
         .when(
         '/About',
