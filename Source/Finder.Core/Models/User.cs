@@ -33,31 +33,7 @@ namespace Finder.Core.Models
             Array.Copy(hash, 0, hashBytes, 16, 20);
             //STEP 4 Turn the combined salt+hash into a string for storage
             string savedPasswordHash = Convert.ToBase64String(hashBytes);
-            ///////////////////////////////////////////////////////////////////////////////
-
-
-            /*
-             * STEP 5 Verify the user-entered password against a stored password
-
-            // Fetch the stored value 
-            string savedPasswordHash = DBContext.GetUser(u => u.UserName == user).Password;
-
-            // Extract the bytes 
-            byte[] hashBytes = Convert.FromBase64String(savedPasswordHash);
-
-            // Get the salt 
-            byte[] salt = new byte[16];
-            Array.Copy(hashBytes, 0, salt, 0, 16);
-
-            // Compute the hash on the password the user entered 
-            var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 10000);
-            byte[] hash = pbkdf2.GetBytes(20);
-
-            //Compare the results 
-            for (int i = 0; i < 20; i++)
-                if (hashBytes[i + 16] != hash[i])
-                    throw new UnauthorizedAccessException();
-            */
+            ///////////////////////////////////////////////////////////////////////////////          
 
             this.Password = savedPasswordHash;
             this.Birthdate = birth;
@@ -73,5 +49,32 @@ namespace Finder.Core.Models
             q.QueryInsert(query);
         }
 
+        //Verify the user - entered password against a stored password
+        private bool VerifyPassword(String passwordEntered)
+        {          
+
+            // Fetch the stored PASSWORD-value 
+            //string savedPasswordHash = DBContext.GetUser(u => u.UserName == user).Password;
+            String savedPasswordHash = "";
+
+            // Extract the bytes 
+            byte[] hashBytes = Convert.FromBase64String(savedPasswordHash);
+
+            // Get the salt 
+            byte[] salt = new byte[16];
+            Array.Copy(hashBytes, 0, salt, 0, 16);
+
+            // Compute the hash on the password the user entered 
+            var pbkdf2 = new Rfc2898DeriveBytes(passwordEntered, salt, 10000);
+            byte[] hash = pbkdf2.GetBytes(20);
+
+            //Compare the results 
+            for (int i = 0; i < 20; i++)
+                if (hashBytes[i + 16] != hash[i])
+                    throw new UnauthorizedAccessException();
+
+            return true;
+
+        }
     }
 }
