@@ -13,12 +13,7 @@ namespace Finder.Web.Controllers.Api
         //In this method the connection to DB will be initialized and the movie date will be fetched and returned to the Frontend
         public HttpResponseMessage Get()
         {
-            var testMovie = new Movie
-            {
-                TitleName = "Sharknado 3",
-                Description = "Beste wo gibt!",
-                ReleaseDate = DateTime.Parse("21.07.2016")
-            };
+            var testMovie = new Movie("Sharknado 3", "Beste wo gibt", DateTime.Parse("21.02.2016"));
 
             return this.Request.CreateResponse(HttpStatusCode.OK, testMovie);
         }
