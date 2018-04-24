@@ -13,6 +13,12 @@ namespace Finder.Core.Models
         private String Password { get; set; }
         private DateTime Birthdate { get; set; }
 
+        //empty constructor
+        public User()
+        {
+
+        }
+
         //Constructor with initial upload to DB
         public User(String fN, String lN, String email, String Password, DateTime birth)
         {
@@ -71,7 +77,7 @@ namespace Finder.Core.Models
             //Compare the results 
             for (int i = 0; i < 20; i++)
                 if (hashBytes[i + 16] != hash[i])
-                    throw new UnauthorizedAccessException();
+                    throw new UnauthorizedAccessException(); //or return false here
 
             return true;
 
