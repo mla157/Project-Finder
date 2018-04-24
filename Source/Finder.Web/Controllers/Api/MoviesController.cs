@@ -14,11 +14,11 @@ namespace Finder.Web.Controllers.Api
         public HttpResponseMessage Get()
         {
             var testMovie = new Movie
-                            {
-                                titleName = "Sharknado 3",
-                                description = "Beste wo gibt!",
-                                releaseDate = "21.02.2017"
-                            };
+            {
+                TitleName = "Sharknado 3",
+                Description = "Beste wo gibt!",
+                ReleaseDate = DateTime.Parse("21.07.2016")
+            };
 
             return this.Request.CreateResponse(HttpStatusCode.OK, testMovie);
         }

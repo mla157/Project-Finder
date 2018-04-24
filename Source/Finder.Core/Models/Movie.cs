@@ -29,6 +29,10 @@ namespace Finder.Core.Models
             this.Push();
         }
         
+        //empty contructor for movie
+        public Movie() { }
+
+
         //pushing the movie to the DB
         private void Push()
         {
