@@ -11,6 +11,6 @@ namespace Finder.Web.Models
 
         public string description;
 
-        public DateTime releaseDate;
+        public string releaseDate;
     }
 }
