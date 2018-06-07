@@ -36,8 +36,7 @@ function config($routeProvider) {
         .when(
         '/Overview',
         {
-            templateUrl: rootViewTemplates + '/Frontend/Templates/Overview.html',
-            controller: 'MoviesController'
+            templateUrl: rootViewTemplates + '/Frontend/Templates/Overview.html'
         }
         )
         .when(
@@ -55,7 +54,8 @@ function config($routeProvider) {
         .when(
             '/Finder',
             {
-                templateUrl: rootViewTemplates + '/Frontend/Templates/Finder.html'
+                templateUrl: rootViewTemplates + '/Frontend/Templates/Finder.html',
+                controller: 'MoviesController'
             }
         )
         .otherwise(

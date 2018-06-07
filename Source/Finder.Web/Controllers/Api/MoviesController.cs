@@ -15,40 +15,41 @@ namespace Finder.Web.Controllers.Api
         //In this method the connection to DB will be initialized and the movie date will be fetched and returned to the Frontend
         public HttpResponseMessage Get(string genre)
         {
+            //var genre = "action";
             var returnMovie = new MovieApiModel();
 
             if (genre == "action")
             {
-                returnMovie.movieTitle = "Test Action";
-                returnMovie.MovieDateTime = DateTime.MaxValue;
-                returnMovie.movieGenre = "Test Action";
+                returnMovie.titleName = "Test Action";
+                returnMovie.releaseDate = DateTime.Now;
+                returnMovie.description = "Test Action";
 
             }
             if (genre == "horror")
             {
-                returnMovie.movieTitle = "Test Horror";
-                returnMovie.MovieDateTime = DateTime.MaxValue;
-                returnMovie.movieGenre = "Horror";
+                returnMovie.titleName = "Test horror";
+                returnMovie.releaseDate = DateTime.Now;
+                returnMovie.description = "Test horror";
 
             }
             if (genre == "documentation")
             {
-                returnMovie.movieTitle = "Test documentation";
-                returnMovie.MovieDateTime = DateTime.MaxValue;
-                returnMovie.movieGenre = "documentation";
+                returnMovie.titleName = "Test documentation";
+                returnMovie.releaseDate = DateTime.Now;
+                returnMovie.description = "Test documentation";
 
             }
             if (genre == "scifi")
             {
-                returnMovie.movieTitle = "Test scifi";
-                returnMovie.MovieDateTime = DateTime.MaxValue;
-                returnMovie.movieGenre = "scifi";
+                returnMovie.titleName = "Test scifi";
+                returnMovie.releaseDate = DateTime.Now;
+                returnMovie.description = "Test scifi";
             }
             if (genre == "humor")
             {
-                returnMovie.movieTitle = "Test humor";
-                returnMovie.MovieDateTime  = DateTime.MaxValue;
-                returnMovie.movieGenre = "humor";
+                returnMovie.titleName = "Test humor";
+                returnMovie.releaseDate = DateTime.Now;
+                returnMovie.description = "Test humor";
             }
 
             return this.Request.CreateResponse(HttpStatusCode.OK, returnMovie);

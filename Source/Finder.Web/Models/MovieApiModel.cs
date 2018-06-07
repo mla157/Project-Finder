@@ -7,10 +7,10 @@ namespace Finder.Web.Models
 {
     public class MovieApiModel
     {
-        public string movieTitle;
+        public string titleName;
 
-        public string movieGenre;
+        public string description;
 
-        public DateTime MovieDateTime;
+        public DateTime releaseDate;
     }
 }
