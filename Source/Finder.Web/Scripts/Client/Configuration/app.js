@@ -34,12 +34,6 @@ function config($routeProvider) {
         }
         )
         .when(
-        '/Overview',
-        {
-            templateUrl: rootViewTemplates + '/Frontend/Templates/Overview.html'
-        }
-        )
-        .when(
         '/Login',
         {
             templateUrl: rootViewTemplates + '/Frontend/Templates/Login.html'
