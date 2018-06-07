@@ -13,6 +13,12 @@ namespace Finder.Core.Models
         private string Password { get; set; }
         private DateTime Birthdate { get; set; }
 
+        //empty constructor
+        public User()
+        {
+
+        }
+
         //Constructor with initial upload to DB
         public User(string fN, string lN, string email, string Password, DateTime birth)
         {
