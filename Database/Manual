@@ -1,0 +1,19 @@
+Install xampp -> https://www.apachefriends.org/de/index.html
+Install heidisql -> https://www.heidisql.com/download.php
+
+- Xampp Apache & MySQL starten
+- Browser -> http://127.0.0.1/phpmyadmin/ -> SQL Tab -> Query eintragen: UPDATE mysql.user SET Password=PASSWORD('DEINPASSWORT') WHERE User='root'; FLUSH PRIVILEGES; 
+-> GO
+- [XAMPP Installation Path] / phpmyadmin / config.inc.php
+- $cfg\['Servers'\]\[$i\]['password'] = '';   -> $cfg\['Servers'\]\[$i\]['password'] = 'DEINPASSWORT'; umändern
+- XAMPP im Systemtray beenden und neustarten.
+
+- HeidiSQL -> Neu ->	Verbindungstyp: MySQL(TCP/IP)
+			Hostname/IP:	127.0.0.1
+			Benutzername:	root
+			Passwort:	DEINPASSWORT
+			Port:		3306
+
+- Datei -> SQL Datei ausführen.. -> sqlQueries.sql-> F5 -> Datenbank erscheint links in der Liste.
+
+Visual Studio: Connctor Daten der oberen Liste anpassen!

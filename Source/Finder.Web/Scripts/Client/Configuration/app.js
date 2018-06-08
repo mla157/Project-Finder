@@ -19,6 +19,7 @@ function config($routeProvider) {
         '/Home',
         {
             templateUrl: rootViewTemplates + '/Frontend/Templates/Home.html',
+            controller: 'HomeController'
         })
         .when(
         '/About',
@@ -33,11 +34,23 @@ function config($routeProvider) {
         }
         )
         .when(
-        '/Overview',
+        '/Login',
         {
-            templateUrl: rootViewTemplates + '/Frontend/Templates/Overview.html',
-            controller: 'MoviesController'
+            templateUrl: rootViewTemplates + '/Frontend/Templates/Login.html'
         }
+        )
+        .when(
+        '/Register',
+        {
+            templateUrl: rootViewTemplates + '/Frontend/Templates/Register.html'
+        }
+        )
+        .when(
+            '/Finder',
+            {
+                templateUrl: rootViewTemplates + '/Frontend/Templates/Finder.html',
+                controller: 'MoviesController'
+            }
         )
         .otherwise(
         {

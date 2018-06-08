@@ -15,3 +15,105 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.register-form {
+    width: 340px;
+    margin: 50px auto;
+}
+
+    .register-form form {
+        margin-bottom: 15px;
+        background: #f7f7f7;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+    }
+
+    .register-form h2 {
+        margin: 0 0 15px;
+    }
+
+.form-control, .btn {
+    min-height: 38px;
+    border-radius: 2px;
+}
+
+.btn {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.login-form {
+    width: 340px;
+    margin: 50px auto;
+}
+
+    .login-form form {
+        margin-bottom: 15px;
+        background: #f7f7f7;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+    }
+
+    .login-form h2 {
+        margin: 0 0 15px;
+    }
+
+.form-control, .btn {
+    min-height: 38px;
+    border-radius: 2px;
+}
+
+.btn {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.spinner {
+    margin: 100px auto;
+    width: 40px;
+    height: 40px;
+    position: relative;
+}
+
+.cube1, .cube2 {
+    background-color: #333;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  
+    -webkit-animation: sk-cubemove 1.8s infinite ease-in-out;
+    animation: sk-cubemove 1.8s infinite ease-in-out;
+}
+
+.cube2 {
+    -webkit-animation-delay: -0.9s;
+    animation-delay: -0.9s;
+}
+
+@-webkit-keyframes sk-cubemove {
+    25% { -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5) }
+    50% { -webkit-transform: translateX(42px) translateY(42px) rotate(-180deg) }
+    75% { -webkit-transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5) }
+    100% { -webkit-transform: rotate(-360deg) }
+}
+
+@keyframes sk-cubemove {
+    25% { 
+        transform: translateX(42px) rotate(-90deg) scale(0.5);
+        -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5);
+    } 50% { 
+          transform: translateX(42px) translateY(42px) rotate(-179deg);
+          -webkit-transform: translateX(42px) translateY(42px) rotate(-179deg);
+      } 50.1% { 
+            transform: translateX(42px) translateY(42px) rotate(-180deg);
+            -webkit-transform: translateX(42px) translateY(42px) rotate(-180deg);
+        } 75% { 
+              transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+              -webkit-transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+          } 100% { 
+                transform: rotate(-360deg);
+                -webkit-transform: rotate(-360deg);
+            }
+}
