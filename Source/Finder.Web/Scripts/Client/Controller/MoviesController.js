@@ -6,19 +6,32 @@ MoviesController.$inject = ["$scope", "$http", "UrlService"];
 
 function MoviesController($scope, $http, UrlService)
 {
+    $scope.showAlert = false;
+
     $scope.movie = {
         titleName: null,
         description: null,
         releaseDate: null
     };
 
-    $scope.getMovie = function()
+    $scope.getMovie = function(genre)
     {
-        $http.get(UrlService.forApi('Movies')).then(function(response)
-        {
-            $scope.movie = response.data;
-        });
-    };
+        console.log(genre);
+        $scope.showAlert = true;
+        $scope.showMovie = false;
 
-    $scope.getMovie();
-}
+        $http(
+            {
+                method: 'GET',
+                url: UrlService.forApi('Movies') +"?genre="+genre
+            }).then(
+            function success(response) {
+                $scope.movie = response.data;
+                $scope.showAlert = false;
+                $scope.showMovie = true;
+            },
+            function error(response) {
+
+            });
+    };
+};

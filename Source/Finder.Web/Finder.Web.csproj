@@ -154,6 +154,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\MovieApiModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -162,14 +163,17 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Frontend\Templates\About.html" />
+    <Content Include="Frontend\Templates\Finder.html" />
     <Content Include="Frontend\Templates\Home.html" />
-    <Content Include="Frontend\Templates\Overview.html" />
+    <Content Include="Frontend\Templates\Login.html" />
+    <Content Include="Frontend\Templates\Register.html" />
     <Content Include="Frontend\Templates\User.html" />
     <Content Include="Global.asax" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Scripts\Client\Configuration\app.js" />
+    <Content Include="Scripts\Client\Controller\HomeController.js" />
     <Content Include="Scripts\Client\Controller\MoviesController.js" />
     <Content Include="Scripts\Client\Services\UrlService.js" />
     <Content Include="Scripts\Framework\angular-route.js" />
@@ -200,7 +204,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
