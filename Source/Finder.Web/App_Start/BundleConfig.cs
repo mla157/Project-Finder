@@ -23,10 +23,12 @@
                 "~/Scripts/Framework/angular.js",
                 "~/Scripts/Framework/angular-route.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/client").Include(
-                "~/Scripts/Client/Configuration/app.js",
-                "~/Scripts/Client/Services/UrlService.js",
-                "~/Scripts/Client/Controller/MoviesController.js"));
+            bundles.Add(
+                new ScriptBundle("~/bundles/client").Include(
+                    "~/Scripts/Client/Configuration/app.js",
+                    "~/Scripts/Client/Services/UrlService.js",
+                    "~/Scripts/Client/Controller/MoviesController.js",
+                    "~/Scripts/Client/Controller/HomeController.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/bootstrap.css",
