@@ -1,1 +1,23 @@
-﻿<h1>Test</h1>
+﻿<div class="text-center">
+    <a href="#!Finder" class="btn btn-danger" role="button" ng-click="getMovie('action')">Actions</a>
+    <a href="#!Finder" class="btn btn-warning" role="button" ng-click="getMovie('horror')">Horror</a>
+    <a href="#!Finder" class="btn btn btn-success" role="button" ng-click="getMovie('documentation')">Dokumentation</a>
+    <a href="#!Finder" class="btn btn-danger" role="button" ng-click="getMovie('scifi')">Sci-Fi</a>
+    <a href="#!Finder" class="btn btn-warning" role="button" ng-click="getMovie('humor')">Humor</a>
+</div>
+
+
+<div ng-if="showAlert == true" class="spinner">
+    <div class="cube1"></div>
+    <div class="cube2"></div>
+</div>
+<br/>
+<br />
+
+<div ng-show="showMovie">
+    <div class="well well-lg">
+        <h1>Filmname: {{movie.titleName}}</h1>
+        <h5>Beschreibung: {{movie.description}}</h5>
+        <h5>Erscheinungsdatum: {{movie.releaseDate}}</h5>
+    </div>
+</div>
