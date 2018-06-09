@@ -27,7 +27,7 @@ namespace MysqlConnector
         /// </summary>
         public DatabaseConnection()
         {
-            Initialize();
+            this.Initialize();
         }
         /// <summary>
         /// Initialize specs of the database
@@ -35,13 +35,13 @@ namespace MysqlConnector
         private void Initialize()
         {
             //############# ENTER LOG IN HERE #############################################################
-            MySqlConnectionStringBuilder conn_string = new MySqlConnectionStringBuilder();             
-            conn_string.Server = "";                                                          
-            conn_string.Database = "";                                                      
-            conn_string.UserID = "";                                                           
-            conn_string.Password = "";                                 
+            var conn_string = new MySqlConnectionStringBuilder();
+            conn_string.Server = "127.0.0.1";
+            conn_string.Database = "finderdb";
+            conn_string.UserID = "root";
+            conn_string.Password = "DEINPASSWORT";
             //#############################################################################################
-            connection = new MySqlConnection(conn_string.ToString());
+            this.connection = new MySqlConnection(conn_string.ToString());
         }
 
         /// <summary>
@@ -52,7 +52,7 @@ namespace MysqlConnector
         {
             try
             {
-                connection.Open();
+                this.connection.Open();
                 Console.WriteLine("Connection successful");
                 return true;
             }
@@ -71,7 +71,7 @@ namespace MysqlConnector
         {
             try
             {
-                connection.Close();
+                this.connection.Close();
                 Console.WriteLine("Database closed successful");
                 return true;
             }
@@ -87,11 +87,11 @@ namespace MysqlConnector
         /// Insert statement
         /// </summary>
         /// <param name="query"></param>
-        public void QueryInsert(String query )
+        public void QueryInsert(String query)
         {
             if (this.OpenConnection() == true)
             {
-                MySqlCommand command = new MySqlCommand(query, connection);
+                var command = new MySqlCommand(query, this.connection);
                 command.ExecuteNonQuery();
                 this.CloseConnection();
             }
@@ -105,9 +105,12 @@ namespace MysqlConnector
         {
             if(this.OpenConnection() == true)
             {
-                MySqlCommand command = new MySqlCommand();
-                command.CommandText = query;
-                command.Connection = connection;
+                var command = new MySqlCommand
+                              {
+                                  CommandText = query,
+                                  Connection = this.connection
+                              };
+
                 command.ExecuteNonQuery();
                 this.CloseConnection();
             }
@@ -121,7 +124,7 @@ namespace MysqlConnector
         {
             if (this.OpenConnection() == true)
             {
-                MySqlCommand command = new MySqlCommand(query, connection);
+                var command = new MySqlCommand(query, this.connection);
                 command.ExecuteNonQuery();
                 this.CloseConnection();
             }
@@ -134,11 +137,11 @@ namespace MysqlConnector
         /// <returns>Int value of counted columns</returns>
         public int QueryColumnCount(String tableName)
         {
-            int count = 0;
-            String query = "DESCRIBE " + tableName;
+            var count = 0;
+            var query = "DESCRIBE " + tableName;
             if(this.OpenConnection() == true)
             {
-                MySqlCommand command = new MySqlCommand(query, connection);
+                var command = new MySqlCommand(query, this.connection);
                 MySqlDataReader reader;
                 if(this.OpenConnection() == true)
                 {
@@ -148,21 +151,20 @@ namespace MysqlConnector
                 return count;
             }
             return count = -1;
-           
+
         }
 
         public List< string > GetColumnNames(String tableName)
         {
 
-            int columnCount = QueryColumnCount(tableName);
+            var columnCount = this.QueryColumnCount(tableName);
 
-            List <string> columnNames = new List<string>();
-    
+            var columnNames = new List<string>();
 
             DataTable schema = null;
             if (this.OpenConnection() == true)
             {
-                using (var schemaCommand = new MySql.Data.MySqlClient.MySqlCommand("Select * FROM " + tableName))
+                using (var schemaCommand = new MySqlCommand("Select * FROM " + tableName))
                 {
                     using (var reader = schemaCommand.ExecuteReader(CommandBehavior.SchemaOnly))
                     {

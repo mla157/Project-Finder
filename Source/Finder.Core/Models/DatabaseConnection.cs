@@ -32,13 +32,13 @@ namespace Finder.Core.Models
         private void Initialize()
         {
             //############# ENTER LOG IN HERE #############################################################
-            var conn_string = new MySqlConnectionStringBuilder();
-            conn_string.Server = "";
-            conn_string.Database = "";
-            conn_string.UserID = "";
-            conn_string.Password = "";
+            var connString = new MySqlConnectionStringBuilder();
+            connString.Server = "";
+            connString.Database = "";
+            connString.UserID = "";
+            connString.Password = "";
             //#############################################################################################
-            this.connection = new MySqlConnection(conn_string.ToString());
+            this.connection = new MySqlConnection(connString.ToString());
         }
 
         /// <summary>
