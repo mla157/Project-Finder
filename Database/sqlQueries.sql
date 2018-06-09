@@ -79,7 +79,12 @@ CREATE TABLE IF NOT EXISTS `movie` (
 -- Dumping data for table finderdb.movie: ~1 rows (approximately)
 /*!40000 ALTER TABLE `movie` DISABLE KEYS */;
 INSERT INTO `movie` (`idMovie`, `title`, `year`, `Genre`, `description`, `language`) VALUES
-	(1, 'Avengers: Infinity War', '2018-04-26', 1, 'Avengers: Infinity War: Im ultimativen Marvel-Superhelden-Spektakel treten die Avengers, Doctor Strange und die Guardians of the Galaxy gemeinsam gegen den Über-Bösewicht Thanos an.', 'De-DE');
+	(1, 'Avengers: Infinity War', '2018-04-26', 1, 'Avengers: Infinity War: Im ultimativen Marvel-Superhelden-Spektakel treten die Avengers, Doctor Strange und die Guardians of the Galaxy gemeinsam gegen den Über-Bösewicht Thanos an.', 'De-DE'),
+	(2, 'Es', '2018-09-28', 2, 'Nachdem in dem Städtchen Derry/Maine Kinder verschwunden sind, müssen sich einige Jugendliche ihren schlimmsten Ängsten stellen, als sie es mit einem Horrorclown namens Pennywise zu tun bekommen - schon seit Jahrhunderten treibt dieser brutale Mörder sein', ''),
+	(3, 'Eine umbequeme Wahrheit', '2018-10-12', 3, 'Eine unbequeme Wahrheit ist ein Dokumentarfilm von Davis Guggenheim mit dem ehemaligen US-Vizepräsidenten und Präsidentschaftskandidaten Al Gore über die globale Erwärmung', ''),
+	(4, 'Interstellar', '2018-11-06', 4, 'Basierend auf einer Idee des Physikers Kip S. Thorne soll sich die Handlung um eine Reise einiger Forscher durch ein \\"Wurmloch\\" in eine andere Dimension drehen. Der angesehene Wissenschaftler vertritt die Theorie, dass solche Wurmlöcher nicht nur tatsäc', ''),
+	(5, 'Lustiger Film 123', '2017-12-12', 5, 'Test Humor', ''),
+	(6, 'Avengers: Infinity War 2', '2018-04-26', 1, 'Avengers: Infinity War: Im ultimativen Marvel-Superhelden-Spektakel treten die Avengers, Doctor Strange und die Guardians of the Galaxy gemeinsam gegen den Über-Bösewicht Thanos an.', 'De-DE');
 /*!40000 ALTER TABLE `movie` ENABLE KEYS */;
 
 -- Dumping structure for table finderdb.movies_keywords_has_keywords
