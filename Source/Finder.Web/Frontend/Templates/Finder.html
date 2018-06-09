@@ -1,4 +1,8 @@
-﻿<div class="text-center">
+﻿<div ng-if="showError == true"class="alert alert-danger" role="alert">
+    Leider gab es ein Fehler. Bitte versuchen Sie es später nocheinmal!
+</div>
+
+<div class="text-center">
     <a href="#!Finder" class="btn btn-danger" role="button" ng-click="getMovie('action')">Actions</a>
     <a href="#!Finder" class="btn btn-warning" role="button" ng-click="getMovie('horror')">Horror</a>
     <a href="#!Finder" class="btn btn btn-success" role="button" ng-click="getMovie('documentation')">Dokumentation</a>
