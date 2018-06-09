@@ -186,24 +186,28 @@
         /// </summary>
         /// <param name="query">mysql query</param>
         /// <returns>list filled with data</returns>
-        public List<string> GetData(string query)
+        public List<object[]> GetData(string query)
         {
-            var data = new List<string>();
-            if(this.OpenConnection() == true)
+            List<object[]> dataList = new List<object[]>();
+            if (this.OpenConnection() == true)
             {
-                using (var schemaCommand = new MySqlCommand(query))
+                using (var schemaCommand = new MySqlCommand(query, this.connection))
                 {
                     MySqlDataReader reader = schemaCommand.ExecuteReader();
                     while (reader.Read())
                     {
-                        data.Add(reader.ToString());
+                        object[] tempRow = new object[reader.FieldCount];
+                        for (int i = 0; i < reader.FieldCount; i++)
+                        {
+                            tempRow[i] = reader[i];
+                        }
+                        dataList.Add(tempRow);
                     }
                     reader.Close();
                 }
-                return data;
 
             }
-            return null;
+            return dataList;
         }
     }
 }
