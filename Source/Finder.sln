@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finder.Web", "Finder.Web\Fi
 		{E7CAD36C-2A25-4123-8520-ED6D44B249FD} = {E7CAD36C-2A25-4123-8520-ED6D44B249FD}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MysqlConnector", "..\MysqlConnector\MysqlConnector\MysqlConnector.csproj", "{1BD1DA33-9219-467E-A844-EDCA476B5A74}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +26,10 @@ Global
 		{148B70AD-8C2C-41F9-B960-3B566B0D9927}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{148B70AD-8C2C-41F9-B960-3B566B0D9927}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{148B70AD-8C2C-41F9-B960-3B566B0D9927}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BD1DA33-9219-467E-A844-EDCA476B5A74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BD1DA33-9219-467E-A844-EDCA476B5A74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BD1DA33-9219-467E-A844-EDCA476B5A74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BD1DA33-9219-467E-A844-EDCA476B5A74}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
