@@ -28,6 +28,7 @@
                     "~/Scripts/Client/Configuration/app.js",
                     "~/Scripts/Client/Services/UrlService.js",
                     "~/Scripts/Client/Controller/MoviesController.js",
+                    "~/Scripts/Client/Controller/OverviewController.js",
                     "~/Scripts/Client/Controller/HomeController.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
