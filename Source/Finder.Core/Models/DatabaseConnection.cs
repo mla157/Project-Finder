@@ -11,7 +11,7 @@
     /// <summary>
     /// Class to connect to a mysql database server
     /// </summary>
-    class DatabaseConnection
+    public class DatabaseConnection
     {
         /// <summary>
         /// Database Specs
@@ -40,6 +40,7 @@
             conn_string.Database = "finderdb";
             conn_string.UserID = "root";
             conn_string.Password = "DEINPASSWORT";
+            conn_string.SslMode = MySqlSslMode.None;
             //#############################################################################################
             this.connection = new MySqlConnection(conn_string.ToString());
         }
@@ -185,7 +186,7 @@
         /// </summary>
         /// <param name="query">mysql query</param>
         /// <returns>list filled with data</returns>
-        public List<string> GetData(String query)
+        public List<string> GetData(string query)
         {
             var data = new List<string>();
             if(this.OpenConnection() == true)
@@ -204,7 +205,5 @@
             }
             return null;
         }
-        
-
     }
 }
