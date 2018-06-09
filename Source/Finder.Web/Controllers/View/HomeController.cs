@@ -14,9 +14,6 @@ namespace Finder.Web.Controllers
         {
             ViewBag.Title = "Home Page";
 
-            var databaseConnection = new DatabaseConnection();
-            var resultData = databaseConnection.GetData("SELECT * FROM movie");
-
             return View();
         }
     }
