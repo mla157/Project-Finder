@@ -2,8 +2,11 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Data;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
     using MySql.Data.MySqlClient;
+    using System.Data;
 
     /// <summary>
     /// Class to connect to a mysql database server
@@ -177,6 +180,31 @@
             return columnNames;
         }
 
+        /// <summary>
+        /// Returns data from a select query as a list
+        /// </summary>
+        /// <param name="query">mysql query</param>
+        /// <returns>list filled with data</returns>
+        public List<string> GetData(String query)
+        {
+            var data = new List<string>();
+            if(this.OpenConnection() == true)
+            {
+                using (var schemaCommand = new MySqlCommand(query))
+                {
+                    MySqlDataReader reader = schemaCommand.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        data.Add(reader.ToString());
+                    }
+                    reader.Close();
+                }
+                return data;
+
+            }
+            return null;
+        }
+        
 
     }
 }
