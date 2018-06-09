@@ -6,3 +6,12 @@ F:\VSProjects\MysqlConnector\MysqlConnector\obj\Debug\MysqlConnector.exe
 F:\VSProjects\MysqlConnector\MysqlConnector\obj\Debug\MysqlConnector.pdb
 F:\VSProjects\MysqlConnector\MysqlConnector\bin\Debug\MySql.Data.dll
 F:\VSProjects\MysqlConnector\MysqlConnector\bin\Debug\MySql.Data.xml
+C:\Repos\Github\Project-Finder\MysqlConnector\MysqlConnector\bin\Debug\MysqlConnector.exe.config
+C:\Repos\Github\Project-Finder\MysqlConnector\MysqlConnector\bin\Debug\MysqlConnector.exe
+C:\Repos\Github\Project-Finder\MysqlConnector\MysqlConnector\bin\Debug\MysqlConnector.pdb
+C:\Repos\Github\Project-Finder\MysqlConnector\MysqlConnector\bin\Debug\MySql.Data.xml
+C:\Repos\Github\Project-Finder\MysqlConnector\MysqlConnector\obj\Debug\MysqlConnector.csprojAssemblyReference.cache
+C:\Repos\Github\Project-Finder\MysqlConnector\MysqlConnector\obj\Debug\MysqlConnector.csproj.CoreCompileInputs.cache
+C:\Repos\Github\Project-Finder\MysqlConnector\MysqlConnector\obj\Debug\MysqlConnector.csproj.CopyComplete
+C:\Repos\Github\Project-Finder\MysqlConnector\MysqlConnector\obj\Debug\MysqlConnector.exe
+C:\Repos\Github\Project-Finder\MysqlConnector\MysqlConnector\obj\Debug\MysqlConnector.pdb
