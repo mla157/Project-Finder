@@ -1,7 +1,18 @@
 ﻿<div ng-if="showError == true" class="alert alert-danger" role="alert">
     Bitte überprüfen Sie Ihre Eingaben. Das E-Mail muss gültig sein und die eingebenen Passwörter müssen identisch sein.
 </div>
-<div class="register-form">
+<div ng-if="showUserError == true" class="alert alert-danger" role="alert">
+    Ein Benutzer mit diesem Namen existiert schon!
+</div>
+
+<div class="alert alert-success" role="alert" ng-if="showSucess">
+    <h4 class="alert-heading">Super!</h4>
+    <p>Sie haben sich erfolgreich für Finder registriert.</p>
+    <hr>
+    <p class="mb-0"> Suchen Sie sich doch einen Film in der <a href="#!Finder">Filmsuche</a></p>
+</div>
+
+<div class="register-form" ng-if="showRegisterForm == true">
     <form method="post">
         <h2 class="text-center">Registrierung</h2>
         <div class="form-group">

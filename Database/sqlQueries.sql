@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `movie` (
   CONSTRAINT `fk_Movie_Genre` FOREIGN KEY (`Genre`) REFERENCES `genre` (`idGenre`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
--- Dumping data for table finderdb.movie: ~0 rows (approximately)
+-- Dumping data for table finderdb.movie: ~6 rows (approximately)
 /*!40000 ALTER TABLE `movie` DISABLE KEYS */;
 INSERT INTO `movie` (`idMovie`, `title`, `year`, `Genre`, `description`, `language`, `imageUrl`) VALUES
 	(1, 'Avengers: Infinity War', '2018-04-26', 1, 'Avengers: Infinity War: Im ultimativen Marvel-Superhelden-Spektakel treten die Avengers, Doctor Strange und die Guardians of the Galaxy gemeinsam gegen den Über-Bösewicht Thanos an.', 'De-DE', 'Images\\theavengers.jpg'),
@@ -192,7 +192,6 @@ CREATE TABLE IF NOT EXISTS `user` (
   `benutzername` varchar(45) NOT NULL COMMENT 'Benutzername. Nicht null und einzigartig, da jeder Benutzer eindeutig identifiziert werden muss.',
   `vorname` varchar(45) NOT NULL COMMENT 'Vorname des Benutzers',
   `nachname` varchar(45) NOT NULL COMMENT 'Nachname des Benutzers',
-  `geburtsdatum` date NOT NULL COMMENT 'Geburtsdatum - Pflichtfeld da gewisse Filme erst ab 18 einsichtbar sind.',
   `passwort` varchar(100) NOT NULL COMMENT 'Passwort des Benutzers als Hashwert gespeichert.\n\nKEIN PASSWORT IN KLARSCHRIFT ABSPEICHERN!',
   `preference` varchar(100) DEFAULT NULL,
   `userCreated` datetime DEFAULT CURRENT_TIMESTAMP,
