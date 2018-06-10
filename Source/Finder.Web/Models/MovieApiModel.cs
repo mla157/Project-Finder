@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Finder.Web.Models
+﻿namespace Finder.Web.Models
 {
     public class MovieApiModel
     {
