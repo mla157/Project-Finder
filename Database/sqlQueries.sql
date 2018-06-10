@@ -203,6 +203,13 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 -- Dumping data for table finderdb.user: ~0 rows (approximately)
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` (`idUser`, `benutzername`, `vorname`, `nachname`, `passwort`, `preference`, `userCreated`, `userChanged`) VALUES
+	(1, 'test', 'test', 'test', 'test', NULL, '2018-06-10 13:45:31', '2018-06-10 13:45:31'),
+	(2, 'maxleonalbrecht', 'max', 'albrecht', '1234', NULL, '2018-06-10 13:49:25', '2018-06-10 13:49:25'),
+	(3, '1', '1', '1', '1', NULL, '2018-06-10 14:06:43', '2018-06-10 14:06:43'),
+	(4, 'a', 'a', 'a', 'a', NULL, '2018-06-10 14:08:42', '2018-06-10 14:08:42'),
+	(5, 'max', 'maxleon', 'albrecht', '1234', NULL, '2018-06-10 14:17:27', '2018-06-10 14:17:27'),
+	(6, 'maxleonalbrechtc', 'max', 'albrecht', '123', NULL, '2018-06-10 14:21:48', '2018-06-10 14:21:48');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 -- Dumping structure for table finderdb.watchlist
