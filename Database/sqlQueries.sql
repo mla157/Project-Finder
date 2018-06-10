@@ -28,7 +28,10 @@ CREATE TABLE IF NOT EXISTS `actor` (
   UNIQUE KEY `idActor_UNIQUE` (`idActor`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Daten Export vom Benutzer nicht ausgewählt
+-- Exportiere Daten aus Tabelle finderdb.actor: ~0 rows (ungefähr)
+/*!40000 ALTER TABLE `actor` DISABLE KEYS */;
+/*!40000 ALTER TABLE `actor` ENABLE KEYS */;
+
 -- Exportiere Struktur von Tabelle finderdb.genre
 CREATE TABLE IF NOT EXISTS `genre` (
   `idGenre` int(11) NOT NULL AUTO_INCREMENT,
@@ -37,7 +40,16 @@ CREATE TABLE IF NOT EXISTS `genre` (
   UNIQUE KEY `idGenre_UNIQUE` (`idGenre`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
--- Daten Export vom Benutzer nicht ausgewählt
+-- Exportiere Daten aus Tabelle finderdb.genre: ~5 rows (ungefähr)
+/*!40000 ALTER TABLE `genre` DISABLE KEYS */;
+INSERT INTO `genre` (`idGenre`, `Genre`) VALUES
+	(1, 'Action'),
+	(2, 'Horror'),
+	(3, 'Documentation'),
+	(4, 'Scifi'),
+	(5, 'Humor');
+/*!40000 ALTER TABLE `genre` ENABLE KEYS */;
+
 -- Exportiere Struktur von Tabelle finderdb.keywords
 CREATE TABLE IF NOT EXISTS `keywords` (
   `idKeywords` int(11) NOT NULL AUTO_INCREMENT,
@@ -46,7 +58,10 @@ CREATE TABLE IF NOT EXISTS `keywords` (
   UNIQUE KEY `idKeywords_UNIQUE` (`idKeywords`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Daten Export vom Benutzer nicht ausgewählt
+-- Exportiere Daten aus Tabelle finderdb.keywords: ~0 rows (ungefähr)
+/*!40000 ALTER TABLE `keywords` DISABLE KEYS */;
+/*!40000 ALTER TABLE `keywords` ENABLE KEYS */;
+
 -- Exportiere Struktur von Tabelle finderdb.movie
 CREATE TABLE IF NOT EXISTS `movie` (
   `idMovie` int(11) NOT NULL AUTO_INCREMENT,
@@ -62,7 +77,17 @@ CREATE TABLE IF NOT EXISTS `movie` (
   CONSTRAINT `fk_Movie_Genre` FOREIGN KEY (`Genre`) REFERENCES `genre` (`idGenre`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
--- Daten Export vom Benutzer nicht ausgewählt
+-- Exportiere Daten aus Tabelle finderdb.movie: ~6 rows (ungefähr)
+/*!40000 ALTER TABLE `movie` DISABLE KEYS */;
+INSERT INTO `movie` (`idMovie`, `title`, `year`, `Genre`, `description`, `language`, `imageUrl`) VALUES
+	(1, 'Avengers: Infinity War', '2018-04-26', 1, 'Avengers: Infinity War: Im ultimativen Marvel-Superhelden-Spektakel treten die Avengers, Doctor Strange und die Guardians of the Galaxy gemeinsam gegen den Über-Bösewicht Thanos an.', 'De-DE', 'https://www.google.com/imgres?imgurl=http%3A%2F%2F3.bp.blogspot.com%2F-Wb8QnQZO2fs%2FT6VBJw3GdVI%2FAAAAAAAAEys%2FB_JTn8UcpuU%2Fs1600%2FAvengers%2B2012%2B1.jpg&imgrefurl=http%3A%2F%2Fbrianvsmovies.blogspot.com%2F2012%2F05%2Favengers-2012.html&docid=fYkm7uD'),
+	(2, 'Es', '2018-09-28', 2, 'Nachdem in dem Städtchen Derry/Maine Kinder verschwunden sind, müssen sich einige Jugendliche ihren schlimmsten Ängsten stellen, als sie es mit einem Horrorclown namens Pennywise zu tun bekommen - schon seit Jahrhunderten treibt dieser brutale Mörder sein', '', 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fimages-eu.ssl-images-amazon.com%2Fimages%2FI%2F41-HMcMgXHL.jpg&imgrefurl=https%3A%2F%2Fwww.amazon.de%2FEs-Roman-Stephen-King-ebook%2Fdp%2FB004P1J4B6&docid=fksarnthtlqo3M&tbnid=JNT319rbbpVmTM%3A&vet=10ahUK'),
+	(3, 'Eine umbequeme Wahrheit', '2018-10-12', 3, 'Eine unbequeme Wahrheit ist ein Dokumentarfilm von Davis Guggenheim mit dem ehemaligen US-Vizepräsidenten und Präsidentschaftskandidaten Al Gore über die globale Erwärmung', '', NULL),
+	(4, 'Interstellar', '2018-11-06', 4, 'Basierend auf einer Idee des Physikers Kip S. Thorne soll sich die Handlung um eine Reise einiger Forscher durch ein \\"Wurmloch\\" in eine andere Dimension drehen. Der angesehene Wissenschaftler vertritt die Theorie, dass solche Wurmlöcher nicht nur tatsäc', '', NULL),
+	(5, 'Lustiger Film 123', '2017-12-12', 5, 'Test Humor', '', NULL),
+	(6, 'Avengers: Infinity War 2', '2018-04-26', 1, 'Avengers: Infinity War: Im ultimativen Marvel-Superhelden-Spektakel treten die Avengers, Doctor Strange und die Guardians of the Galaxy gemeinsam gegen den Über-Bösewicht Thanos an.', 'De-DE', NULL);
+/*!40000 ALTER TABLE `movie` ENABLE KEYS */;
+
 -- Exportiere Struktur von Tabelle finderdb.movies_keywords_has_keywords
 CREATE TABLE IF NOT EXISTS `movies_keywords_has_keywords` (
   `Movies_Keywords_idMovies_Keywords` int(11) NOT NULL,
@@ -72,7 +97,10 @@ CREATE TABLE IF NOT EXISTS `movies_keywords_has_keywords` (
   CONSTRAINT `fk_Movies_Keywords_has_Keywords_Keywords1` FOREIGN KEY (`Keywords_idKeywords`) REFERENCES `keywords` (`idKeywords`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Daten Export vom Benutzer nicht ausgewählt
+-- Exportiere Daten aus Tabelle finderdb.movies_keywords_has_keywords: ~0 rows (ungefähr)
+/*!40000 ALTER TABLE `movies_keywords_has_keywords` DISABLE KEYS */;
+/*!40000 ALTER TABLE `movies_keywords_has_keywords` ENABLE KEYS */;
+
 -- Exportiere Struktur von Tabelle finderdb.movie_has_actor
 CREATE TABLE IF NOT EXISTS `movie_has_actor` (
   `Movie_idMovie` int(11) NOT NULL,
@@ -85,7 +113,10 @@ CREATE TABLE IF NOT EXISTS `movie_has_actor` (
   CONSTRAINT `fk_Movie_has_Actor_Movie1` FOREIGN KEY (`Movie_idMovie`) REFERENCES `movie` (`idMovie`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Daten Export vom Benutzer nicht ausgewählt
+-- Exportiere Daten aus Tabelle finderdb.movie_has_actor: ~0 rows (ungefähr)
+/*!40000 ALTER TABLE `movie_has_actor` DISABLE KEYS */;
+/*!40000 ALTER TABLE `movie_has_actor` ENABLE KEYS */;
+
 -- Exportiere Struktur von Tabelle finderdb.movie_has_keywords
 CREATE TABLE IF NOT EXISTS `movie_has_keywords` (
   `Movie_idMovie` int(11) NOT NULL,
@@ -95,7 +126,10 @@ CREATE TABLE IF NOT EXISTS `movie_has_keywords` (
   CONSTRAINT `fk_Movie_has_Keywords_Movie1` FOREIGN KEY (`Movie_idMovie`) REFERENCES `movie` (`idMovie`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Daten Export vom Benutzer nicht ausgewählt
+-- Exportiere Daten aus Tabelle finderdb.movie_has_keywords: ~0 rows (ungefähr)
+/*!40000 ALTER TABLE `movie_has_keywords` DISABLE KEYS */;
+/*!40000 ALTER TABLE `movie_has_keywords` ENABLE KEYS */;
+
 -- Exportiere Struktur von Tabelle finderdb.movie_has_keywords_has_keywords
 CREATE TABLE IF NOT EXISTS `movie_has_keywords_has_keywords` (
   `Movie_has_Keywords_Movie_idMovie` int(11) NOT NULL,
@@ -108,7 +142,10 @@ CREATE TABLE IF NOT EXISTS `movie_has_keywords_has_keywords` (
   CONSTRAINT `fk_Movie_has_Keywords_has_Keywords_Movie_has_Keywords1` FOREIGN KEY (`Movie_has_Keywords_Movie_idMovie`, `Movie_has_Keywords_Keywords_idKeywords`) REFERENCES `movie_has_keywords` (`Movie_idMovie`, `Keywords_idKeywords`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Daten Export vom Benutzer nicht ausgewählt
+-- Exportiere Daten aus Tabelle finderdb.movie_has_keywords_has_keywords: ~0 rows (ungefähr)
+/*!40000 ALTER TABLE `movie_has_keywords_has_keywords` DISABLE KEYS */;
+/*!40000 ALTER TABLE `movie_has_keywords_has_keywords` ENABLE KEYS */;
+
 -- Exportiere Struktur von Tabelle finderdb.movie_has_movies_keywords
 CREATE TABLE IF NOT EXISTS `movie_has_movies_keywords` (
   `Movie_idMovie` int(11) NOT NULL,
@@ -118,7 +155,10 @@ CREATE TABLE IF NOT EXISTS `movie_has_movies_keywords` (
   CONSTRAINT `fk_Movie_has_Movies_Keywords_Movie1` FOREIGN KEY (`Movie_idMovie`) REFERENCES `movie` (`idMovie`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Daten Export vom Benutzer nicht ausgewählt
+-- Exportiere Daten aus Tabelle finderdb.movie_has_movies_keywords: ~0 rows (ungefähr)
+/*!40000 ALTER TABLE `movie_has_movies_keywords` DISABLE KEYS */;
+/*!40000 ALTER TABLE `movie_has_movies_keywords` ENABLE KEYS */;
+
 -- Exportiere Struktur von Tabelle finderdb.playlist
 CREATE TABLE IF NOT EXISTS `playlist` (
   `User_idUser` int(11) NOT NULL,
@@ -127,7 +167,10 @@ CREATE TABLE IF NOT EXISTS `playlist` (
   CONSTRAINT `fk_Playlist_User1` FOREIGN KEY (`User_idUser`) REFERENCES `user` (`idUser`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Daten Export vom Benutzer nicht ausgewählt
+-- Exportiere Daten aus Tabelle finderdb.playlist: ~0 rows (ungefähr)
+/*!40000 ALTER TABLE `playlist` DISABLE KEYS */;
+/*!40000 ALTER TABLE `playlist` ENABLE KEYS */;
+
 -- Exportiere Struktur von Tabelle finderdb.playlist_has_movie
 CREATE TABLE IF NOT EXISTS `playlist_has_movie` (
   `Movie_idMovie` int(11) NOT NULL,
@@ -139,7 +182,10 @@ CREATE TABLE IF NOT EXISTS `playlist_has_movie` (
   CONSTRAINT `fk_Movie_has_Playlist_Playlist1` FOREIGN KEY (`Playlist_User_idUser`) REFERENCES `playlist` (`User_idUser`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Daten Export vom Benutzer nicht ausgewählt
+-- Exportiere Daten aus Tabelle finderdb.playlist_has_movie: ~0 rows (ungefähr)
+/*!40000 ALTER TABLE `playlist_has_movie` DISABLE KEYS */;
+/*!40000 ALTER TABLE `playlist_has_movie` ENABLE KEYS */;
+
 -- Exportiere Struktur von Tabelle finderdb.user
 CREATE TABLE IF NOT EXISTS `user` (
   `idUser` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Automatisch, numerisch aufsteigende Zahl die von der Datenbank selbst erstellt wird.\n\nPRIMARY KEY',
@@ -156,7 +202,10 @@ CREATE TABLE IF NOT EXISTS `user` (
   UNIQUE KEY `Benutzername_UNIQUE` (`benutzername`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Daten Export vom Benutzer nicht ausgewählt
+-- Exportiere Daten aus Tabelle finderdb.user: ~0 rows (ungefähr)
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+
 -- Exportiere Struktur von Tabelle finderdb.watchlist
 CREATE TABLE IF NOT EXISTS `watchlist` (
   `Movie_idMovie` int(11) NOT NULL,
@@ -168,7 +217,10 @@ CREATE TABLE IF NOT EXISTS `watchlist` (
   CONSTRAINT `fk_Movie_has_User_User1` FOREIGN KEY (`User_idUser`) REFERENCES `user` (`idUser`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Daten Export vom Benutzer nicht ausgewählt
+-- Exportiere Daten aus Tabelle finderdb.watchlist: ~0 rows (ungefähr)
+/*!40000 ALTER TABLE `watchlist` DISABLE KEYS */;
+/*!40000 ALTER TABLE `watchlist` ENABLE KEYS */;
+
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
