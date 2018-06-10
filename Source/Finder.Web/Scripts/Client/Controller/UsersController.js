@@ -20,7 +20,7 @@ function UsersController($scope, $http, UrlService) {
     {
         $scope.showError = false;
 
-        if ($scope.Validate()) {
+        if (!$scope.Validate()) {
 
             $scope.createButtonDisable = false;
             return;
