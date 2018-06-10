@@ -1,55 +1,29 @@
-﻿<!-- Bootstrap Date-Picker Plugin -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
-
-
+﻿<div ng-if="showError == true" class="alert alert-danger" role="alert">
+    Leider gab es ein Fehler. Bitte versuchen Sie es später nocheinmal!
+</div>
 <div class="register-form">
     <form method="post">
         <h2 class="text-center">Registrierung</h2>
         <div class="form-group">
-            <input type="text" id="nutzer" class="form-control" placeholder="Nutzername" required="required">
+            <input type="text" id="nutzer" class="form-control" placeholder="Nutzername" required="required" ng-model="user.userName">
         </div>
         <div class="form-group">
-            <input type="text" id="vorname" class="form-control" placeholder="Vorname" required="required">
+            <input type="text" id="vorname" class="form-control" placeholder="Vorname" required="required" ng-model="user.firstName">
         </div>
         <div class="form-group">
-            <input type="text" id="nachname" class="form-control" placeholder="Nachname" required="required">
+            <input type="text" id="nachname" class="form-control" placeholder="Nachname" required="required" ng-model="user.lastName">
         </div>
         <div class="form-group">
-            <input type="text" id="email" class="form-control" placeholder="E-Mail" required="required">
+            <input type="text" id="email" class="form-control" placeholder="E-Mail" required="required" ng-model="user.eMail">
         </div>
         <div class="form-group">
-            <input type="password" id="pw1" class="form-control" placeholder="Passwort" required="required">
+            <input type="password" id="pw1" class="form-control" placeholder="Passwort" required="required" ng-model="user.password">
         </div>
         <div class="form-group">
             <input type="password" id="pw2" class="form-control" placeholder="Passwort wiederholen" required="required">
         </div>
         <div class="form-group">
-            <div class="input-group date" data-provide="datepicker" data-date-format="dd.mm.yyyy">
-                <input id="date" class="form-control">
-                <div class="input-group-addon">
-                    <span class="glyphicon glyphicon-th"></span>
-                </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <button type="submit" id="registerButton" class="btn btn-primary btn-block">Registrieren</button>
+            <button type="submit" id="registerButton" class="btn btn-primary btn-block" ng-click="SubmitUser()">Registrieren</button>
         </div>
     </form>
 </div>
-
-<script type="text/javascript">
-
-    function validate() {
-        var pw1 = document.getElementsById("pw1");
-        var pw2 = document.getElementsById("pw2");
-
-        if (pw1.value != "" && pw2.value != "") {
-            if (pw1.value == pw2.value) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-</script>

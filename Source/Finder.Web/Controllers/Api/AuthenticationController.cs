@@ -7,14 +7,16 @@ using System.Web.Http;
 
 namespace Finder.Web.Controllers.Api
 {
+    using Models;
+
     public class AuthenticationController : ApiController
     {
-        public HttpResponseMessage Get(string genre)
+        public HttpResponseMessage Get(string username, string password)
         {
             return this.Request.CreateResponse(HttpStatusCode.OK);
         }
 
-        public HttpResponseMessage Post(string genre)
+        public HttpResponseMessage Post(UserApiModel user)
         {
             return this.Request.CreateResponse(HttpStatusCode.OK);
         }
