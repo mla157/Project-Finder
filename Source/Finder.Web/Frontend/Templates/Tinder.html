@@ -29,6 +29,15 @@
 </head>
 
 <body>
+    
+<div ng-if="showError == true" class="alert alert-danger" role="alert">
+    Leider gab es ein Fehler. Bitte versuchen Sie es später nocheinmal!
+</div>
+
+<div ng-if="showAlert == true" class="spinner">
+    <div class="cube1"></div>
+    <div class="cube2"></div>
+</div>
 
 <div id="main"></div>
 

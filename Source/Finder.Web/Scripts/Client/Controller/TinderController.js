@@ -5,7 +5,10 @@ app.controller("TinderController", TinderController);
 TinderController.$inject = ["$scope", "$http", "UrlService"];
 
 function TinderController($scope, $http, UrlService) {
-    $(document).ready(function () {
+    $(document).ready(function ()
+    {
+        $scope.showError = false;
+        $scope.showAlert = true;
 
         // Define cards
         var cards = [];
@@ -44,6 +47,9 @@ function TinderController($scope, $http, UrlService) {
 
                             counter++;
                         }
+
+                        $scope.showAlert = false;
+
                         Tindercardsjs.render(cards, $('#main'), function (event) {
                             console.log('Swiped ' + event.direction + ', cardid is ' + event.cardid + ' and target is:');
                             console.log(event.card);
@@ -51,8 +57,8 @@ function TinderController($scope, $http, UrlService) {
                     }
                 },
                 function error(response) {
-                    $scope.showError = true;
                     $scope.showAlert = false;
+                    $scope.showError = true;
             });
 
     });
