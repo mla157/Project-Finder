@@ -22,9 +22,9 @@ namespace Finder.Web.Controllers.Api
         {
             //INSECURE!
             var databaseConnection = new DatabaseConnection();
-            var seconddatabaseConnection = new DatabaseConnection();
 
             var queryUser = databaseConnection.GetData($"SELECT * FROM user WHERE benutzername = '" + user.userName +"'");
+            databaseConnection.CloseConnection();
 
             if (queryUser.Count > 0)
             {
@@ -33,7 +33,7 @@ namespace Finder.Web.Controllers.Api
 
             try
             {
-                seconddatabaseConnection.QueryInsert($"INSERT INTO user (`benutzername`, `vorname`, `nachname`, `passwort`) VALUES (\'{user.userName}\', \'{user.firstName}\' , \'{user.lastName}\', \'{user.password}\')");
+                databaseConnection.QueryInsert($"INSERT INTO user (`benutzername`, `vorname`, `nachname`, `passwort`) VALUES (\'{user.userName}\', \'{user.firstName}\' , \'{user.lastName}\', \'{user.password}\')");
             }
             catch (Exception e)
             {
