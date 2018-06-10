@@ -12,5 +12,7 @@ namespace Finder.Web.Models
         public string description;
 
         public string releaseDate;
+
+        public string imageUrl;
     }
 }

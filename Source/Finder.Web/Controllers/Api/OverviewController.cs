@@ -29,7 +29,8 @@ namespace Finder.Web.Controllers.Api
                 {
                     titleName = resultData[counter].GetValue(1).ToString(),
                     releaseDate = resultData[counter].GetValue(2).ToString(),
-                    description = resultData[counter].GetValue(4).ToString()
+                    description = resultData[counter].GetValue(4).ToString(),
+                    imageUrl = resultData[counter].GetValue(6).ToString()
                 };
 
                 counter++;

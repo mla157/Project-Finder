@@ -22,11 +22,12 @@ function TinderController($scope, $http, UrlService) {
                         var counter = 0;
                         for (var i = 0; i < response.data.length; ++i) {
                             var movie = response.data[i];
+                            console.log(movie);
                             var push = new Tindercardsjs.card(
                                 counter,
                                 movie.titleName,
                                 movie.description,
-                                'gfx/pics/01.jpg');
+                                movie.imageUrl);
                             cards.push(push);
                             counter++;
                         }
