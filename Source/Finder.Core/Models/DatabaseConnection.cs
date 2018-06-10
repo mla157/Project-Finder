@@ -68,7 +68,7 @@
         /// Closes a connection to the database
         /// </summary>
         /// <returns>Boolean value if the connection was closed or not</returns>
-        private bool CloseConnection()
+        public bool CloseConnection()
         {
             try
             {
