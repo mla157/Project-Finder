@@ -8,16 +8,39 @@ function TinderController($scope, $http, UrlService) {
     $(document).ready(function () {
 
         // Define cards
-        var cards = [
-            new Tindercardsjs.card(2, 'Geordi Laforge', 'I like big butts', 'gfx/pics/01.jpg'),
-            new Tindercardsjs.card(1, 'Agro Picard', 'Hates Klingons, likes beer.', 'gfx/pics/02.jpg'),
-            new Tindercardsjs.card(0, 'Jean-Luc, Worf & William', 'Swipe right if you also like funny hats like us :D', 'gfx/pics/03.jpg')
-        ];
+        var cards = [];
 
-        // Render cards
-        Tindercardsjs.render(cards, $('#main'), function (event) {
-            console.log('Swiped ' + event.direction + ', cardid is ' + event.cardid + ' and target is:');
-            console.log(event.card);
-        });
+
+            $http(
+                {
+                    method: 'GET',
+                    url: UrlService.forApi('Overview')
+                }).then(
+                function success(response) {
+                    if (response.data)
+                    {
+                        var counter = 0;
+                        for (var i = 0; i < response.data.length; ++i) {
+                            var movie = response.data[i];
+                            var push = new Tindercardsjs.card(
+                                counter,
+                                movie.titleName,
+                                movie.description,
+                                'gfx/pics/01.jpg');
+                            cards.push(push);
+                            counter++;
+                        }
+                        Tindercardsjs.render(cards, $('#main'), function (event) {
+                            console.log('Swiped ' + event.direction + ', cardid is ' + event.cardid + ' and target is:');
+                            console.log(event.card);
+                        });
+                    }
+                },
+                function error(response) {
+                    $scope.showError = true;
+                    $scope.showAlert = false;
+            });
+
     });
+
 }
