@@ -75,4 +75,21 @@ function UsersController($scope, $http, UrlService) {
             });
     }
 
+    $scope.CheckUser = function()
+    {
+        $http(
+            {
+                method: 'GET',
+                url: UrlService.forApi('Authentication'),
+                data: JSON.stringify($scope.user)
+            }).then(
+            function success(response)
+            {
+                console.log("YEAH");
+            },
+            function error(response) {
+                console.log("NOPE");
+            });
+    }
+
 }

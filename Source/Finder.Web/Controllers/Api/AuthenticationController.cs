@@ -10,20 +10,30 @@ namespace Finder.Web.Controllers.Api
 
     public class AuthenticationController : ApiController
     {
-        public HttpResponseMessage Get(string username, string password)
+        public HttpResponseMessage Get(UserApiModel user)
         {
-            return this.Request.CreateResponse(HttpStatusCode.OK);
+            var data = new DatabaseConnection();
+
+            //ExceptionBelow!
+            var queryData = data.GetData($"SELECT * FROM user WHERE benutzername = '" + user.userName + "'");
+
+            if (queryData[0].GetValue(6).ToString() == user.password)
+            {
+                return this.Request.CreateResponse(HttpStatusCode.OK);
+            }
+
+            return this.Request.CreateResponse(HttpStatusCode.InternalServerError);
         }
 
         public HttpResponseMessage Post(UserApiModel user)
         {
             //INSECURE!
-            var databaseConnection = new DatabaseConnection();
+            var databaseConnection = new DatabaseConnection(); //Write Constructior
 
-            var queryUser = databaseConnection.GetData($"SELECT * FROM user WHERE benutzername = '" + user.userName +"'");
+            var queryData = databaseConnection.GetData($"SELECT * FROM user WHERE benutzername = '" + user.userName +"'");
             databaseConnection.CloseConnection();
 
-            if (queryUser.Count > 0)
+            if (queryData.Count > 0)
             {
                 return this.Request.CreateResponse(HttpStatusCode.InternalServerError);
             }
