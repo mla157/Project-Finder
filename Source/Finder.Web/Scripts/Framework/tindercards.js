@@ -136,7 +136,7 @@ Tindercardsjs = (function () {
                     'border': '1px solid #666',
                     'border-radius': '10px',
                     'background-color': '#fff',
-                    'height': '430px',
+                    'height': '510px',
                     'left': '10px',
                     'top': '10px',
                     'right': '10px'

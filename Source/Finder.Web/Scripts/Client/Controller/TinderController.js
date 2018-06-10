@@ -23,12 +23,25 @@ function TinderController($scope, $http, UrlService) {
                         for (var i = 0; i < response.data.length; ++i) {
                             var movie = response.data[i];
                             console.log(movie);
-                            var push = new Tindercardsjs.card(
-                                counter,
-                                movie.titleName,
-                                movie.description,
-                                movie.imageUrl);
+                            console.log(movie.imageURL);
+                            if (movie.imageUrl == "")
+                            {
+                                var push = new Tindercardsjs.card(
+                                    counter,
+                                    movie.titleName,
+                                    movie.description,
+                                    "");
+                            }
+                            else
+                            {
+                                var push = new Tindercardsjs.card(
+                                    counter,
+                                    movie.titleName,
+                                    "",
+                                    movie.imageUrl);
+                            }
                             cards.push(push);
+
                             counter++;
                         }
                         Tindercardsjs.render(cards, $('#main'), function (event) {
