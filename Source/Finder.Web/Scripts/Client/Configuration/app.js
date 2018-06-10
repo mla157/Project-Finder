@@ -30,7 +30,8 @@ function config($routeProvider) {
         .when(
             '/Tinder',
             {
-                templateUrl: rootViewTemplates + '/Frontend/Templates/Tinder.html'
+                templateUrl: rootViewTemplates + '/Frontend/Templates/Tinder.html',
+                controller: 'TinderController'
             }
         )
         .when(
