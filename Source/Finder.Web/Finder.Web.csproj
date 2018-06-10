@@ -194,6 +194,7 @@
     <Content Include="Scripts\Client\Controller\MoviesController.js" />
     <Content Include="Scripts\Client\Controller\OverviewController.js" />
     <Content Include="Scripts\Client\Controller\TinderController.js" />
+    <Content Include="Scripts\Client\Controller\UsersController.js" />
     <Content Include="Scripts\Client\Services\UrlService.js" />
     <Content Include="Scripts\Framework\angular-route.js" />
     <Content Include="Scripts\Framework\angular-route.min.js" />

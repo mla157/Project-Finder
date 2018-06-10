@@ -37,19 +37,22 @@ function config($routeProvider) {
         .when(
         '/User',
         {
-            templateUrl: rootViewTemplates + '/Frontend/Templates/User.html'
+            templateUrl: rootViewTemplates + '/Frontend/Templates/User.html',
+            controller: 'UsersController'
         }
         )
         .when(
         '/Login',
         {
-            templateUrl: rootViewTemplates + '/Frontend/Templates/Login.html'
+            templateUrl: rootViewTemplates + '/Frontend/Templates/Login.html',
+            controller: 'UsersController'
         }
         )
         .when(
         '/Register',
         {
-            templateUrl: rootViewTemplates + '/Frontend/Templates/Register.html'
+            templateUrl: rootViewTemplates + '/Frontend/Templates/Register.html',
+            controller: 'UsersController'
         }
         )
         .when(
