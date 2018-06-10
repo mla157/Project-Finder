@@ -177,6 +177,7 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Frontend\Templates\About.html" />
+    <Content Include="Frontend\Templates\Tinder.html" />
     <Content Include="Frontend\Templates\Finder.html" />
     <Content Include="Frontend\Templates\Home.html" />
     <Content Include="Frontend\Templates\Login.html" />
@@ -199,11 +200,13 @@
     <Content Include="Scripts\Framework\bootstrap.js" />
     <Content Include="Scripts\Framework\bootstrap.min.js" />
     <None Include="Scripts\Framework\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Framework\hammer.min.js" />
     <Content Include="Scripts\Framework\jquery-1.10.2.js" />
     <Content Include="Scripts\Framework\jquery-1.10.2.min.js" />
     <Content Include="Scripts\Framework\modernizr-2.6.2.js" />
     <Content Include="Scripts\Framework\respond.js" />
     <Content Include="Scripts\Framework\respond.min.js" />
+    <Content Include="Scripts\Framework\tindercards.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

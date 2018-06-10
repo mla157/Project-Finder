@@ -31,6 +31,11 @@
                     "~/Scripts/Client/Controller/OverviewController.js",
                     "~/Scripts/Client/Controller/HomeController.js"));
 
+            bundles.Add(
+            new ScriptBundle("~/bundles/swipingcards").Include(
+                "~/Scripts/Framework/hammer.min.js",
+                "~/Scripts/Framework/tindercards.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/bootstrap.css",
                 "~/Content/site.css"));

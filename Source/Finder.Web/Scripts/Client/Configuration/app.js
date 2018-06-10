@@ -28,6 +28,12 @@ function config($routeProvider) {
         }
         )
         .when(
+            '/Tinder',
+            {
+                templateUrl: rootViewTemplates + '/Frontend/Templates/Tinder.html'
+            }
+        )
+        .when(
         '/User',
         {
             templateUrl: rootViewTemplates + '/Frontend/Templates/User.html'
@@ -58,7 +64,7 @@ function config($routeProvider) {
                 templateUrl: rootViewTemplates + '/Frontend/Templates/Overview.html',
                 controller: 'OverviewController'
             }
-        )
+    )
         .otherwise(
         {
             redirectTo: '/'
