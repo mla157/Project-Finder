@@ -1,10 +1,10 @@
 ﻿var app = angular.module('FinderApp');
 
-app.controller("UsersController", UsersController);
+app.controller("AuthenticationController", AuthenticationController);
 
-UsersController.$inject = ["$scope", "$http", "UrlService"];
+AuthenticationController.$inject = ["$scope", "$http", "UrlService"];
 
-function UsersController($scope, $http, UrlService) {
+function AuthenticationController($scope, $http, UrlService) {
 
     $scope.user = {
         userName: null,
@@ -91,7 +91,6 @@ function UsersController($scope, $http, UrlService) {
                 window.location.replace(url);
             },
             function error(response) {
-                console.log("NOPE");
             });
     }
 

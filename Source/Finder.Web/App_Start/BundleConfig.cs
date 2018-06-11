@@ -30,7 +30,7 @@
                     "~/Scripts/Client/Controller/MoviesController.js",
                     "~/Scripts/Client/Controller/OverviewController.js",
                     "~/Scripts/Client/Controller/TinderController.js",
-                    "~/Scripts/Client/Controller/UsersController.js",
+                    "~/Scripts/Client/Controller/AuthenticationController.js",
                     "~/Scripts/Client/Controller/HomeController.js"));
 
             bundles.Add(

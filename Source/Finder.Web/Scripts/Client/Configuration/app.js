@@ -38,21 +38,21 @@ function config($routeProvider) {
         '/User',
         {
             templateUrl: rootViewTemplates + '/Frontend/Templates/User.html',
-            controller: 'UsersController'
+            controller: 'AuthenticationController'
         }
         )
         .when(
         '/Login',
         {
             templateUrl: rootViewTemplates + '/Frontend/Templates/Login.html',
-            controller: 'UsersController'
+            controller: 'AuthenticationController'
         }
         )
         .when(
         '/Register',
         {
             templateUrl: rootViewTemplates + '/Frontend/Templates/Register.html',
-            controller: 'UsersController'
+            controller: 'AuthenticationController'
         }
         )
         .when(
