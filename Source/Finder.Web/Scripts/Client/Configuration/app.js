@@ -47,6 +47,13 @@ function config($routeProvider) {
             templateUrl: rootViewTemplates + '/Frontend/Templates/Login.html',
             controller: 'AuthenticationController'
         }
+    )
+        .when(
+            '/Logout',
+            {
+                templateUrl: rootViewTemplates + '/Frontend/Templates/Logout.html',
+                controller: 'AuthenticationController'
+            }
         )
         .when(
         '/Register',

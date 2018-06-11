@@ -22,6 +22,8 @@ function AuthenticationController($scope, $http, UrlService) {
 
     $scope.showPasswortAlert = false;
 
+    $scope.showNotLoggedIn = false;
+
     $scope.SubmitUser = function()
     {
         $scope.showError = false;
@@ -103,6 +105,21 @@ function AuthenticationController($scope, $http, UrlService) {
                     password: null
                 };
             });
+    }
+
+    $scope.LogoutUser = function()
+    {
+        $scope.showNotLoggedIn = false;
+        if (sessionStorage.loggedInUser !== "")
+        {
+            sessionStorage.loggedInUser = "";
+            var url = UrlService.forRoot('#!/Login');
+            window.location.replace(url);
+        }
+        else
+        {
+            $scope.showNotLoggedIn = true;
+        }
     }
 
 }

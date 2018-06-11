@@ -177,6 +177,7 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Frontend\Templates\About.html" />
+    <Content Include="Frontend\Templates\Logout.html" />
     <Content Include="Frontend\Templates\Tinder.html" />
     <Content Include="Frontend\Templates\Finder.html" />
     <Content Include="Frontend\Templates\Home.html" />
