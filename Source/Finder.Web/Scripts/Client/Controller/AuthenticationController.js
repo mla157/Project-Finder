@@ -89,7 +89,7 @@ function AuthenticationController($scope, $http, UrlService) {
             }).then(
             function success(response)
             {
-                localStorage.loggedInUser = $scope.user.userName;
+                sessionStorage.loggedInUser = $scope.user.userName;
                 window.location.replace(url);
             },
             function error(response) {

@@ -27,8 +27,7 @@ namespace Finder.Web.Controllers.Api
 
         public HttpResponseMessage Post(UserApiModel user)
         {
-            //INSECURE!
-            var databaseConnection = new DatabaseConnection(); //Write Constructior
+            var databaseConnection = new DatabaseConnection();
 
             var queryData = databaseConnection.GetData($"SELECT * FROM user WHERE benutzername = '" + user.userName +"'");
             databaseConnection.CloseConnection();
