@@ -5,6 +5,7 @@ using System.Web.Http;
 
 namespace Finder.Web.Controllers.Api
 {
+    using System.Web.Management;
     using Core.Models;
     using Models;
 
@@ -23,6 +24,21 @@ namespace Finder.Web.Controllers.Api
                 }
 
                 return this.Request.CreateResponse(HttpStatusCode.InternalServerError);
+        }
+
+        public HttpResponseMessage Get(string username)
+        {
+            var databaseConnection = new DatabaseConnection();
+            var queryData = databaseConnection.GetData($"SELECT benutzername, vorname, nachname FROM user WHERE benutzername = '" + username + "'");
+
+            var returnUser = new UserApiModel()
+                             {
+                                 userName = queryData[0].GetValue(0).ToString(),
+                                 firstName = queryData[0].GetValue(1).ToString(),
+                                 lastName = queryData[0].GetValue(2).ToString()
+                             };
+
+            return this.Request.CreateResponse(HttpStatusCode.OK, returnUser);
         }
 
         public HttpResponseMessage Post(UserApiModel user)

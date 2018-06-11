@@ -36,8 +36,6 @@ function AuthenticationController($scope, $http, UrlService) {
         }
 
         $scope.WriterUserToDB();
-
-        console.log($scope.user);
     }
 
     $scope.Validate = function ()
