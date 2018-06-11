@@ -16,7 +16,7 @@ function UsersController($scope, $http, UrlService)
 
     $scope.checkIfUserLoggedIn = function ()
     {
-        if (sessionStorage.loggedInUser !== "")
+        if (sessionStorage.loggedInUser !== "" || sessionStorage.loggedInUser === null)
         {
             $http(
                 {
@@ -36,8 +36,6 @@ function UsersController($scope, $http, UrlService)
             var url = UrlService.forRoot('#!/Login');
             window.location.replace(url);    
         }
-        
-
     }
 
     $scope.checkIfUserLoggedIn();
