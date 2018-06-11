@@ -34,7 +34,7 @@
                         <a href="#!About">About</a>
                     </li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right" ng-if="userloggedIn == true">
                     <li>
                         <a href="#!Login">Login</a>
                     </li>
@@ -42,18 +42,18 @@
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        <br />
-        <div ng-view>
-            @(this.RenderBody())
-        </div>
-        <hr />
-        <footer>
-            <p>Copyright 2018 - @DateTime.Now.Year</p>
-        </footer>
+<div class="container body-content">
+    <br />
+    <div ng-view>
+        @(this.RenderBody())
     </div>
+    <hr />
+    <footer>
+        <p>Copyright 2018 - @DateTime.Now.Year</p>
+    </footer>
+</div>
 
-    @Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/angular")
     @Scripts.Render("~/bundles/client")

@@ -38,7 +38,7 @@ function config($routeProvider) {
         '/User',
         {
             templateUrl: rootViewTemplates + '/Frontend/Templates/User.html',
-            controller: 'AuthenticationController'
+            controller: 'UsersController'
         }
         )
         .when(

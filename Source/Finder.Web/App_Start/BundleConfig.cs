@@ -34,6 +34,10 @@
                     "~/Scripts/Client/Controller/HomeController.js"));
 
             bundles.Add(
+                new ScriptBundle("~/bundles/usercontroller").Include(
+                    "~/Scripts/Client/Controller/UsersController.js"));
+
+            bundles.Add(
             new ScriptBundle("~/bundles/swipingcards").Include(
                 "~/Scripts/Framework/hammer.min.js",
                 "~/Scripts/Framework/tindercards.js"));
