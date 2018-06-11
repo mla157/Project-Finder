@@ -20,6 +20,8 @@ function AuthenticationController($scope, $http, UrlService) {
 
     $scope.showSucess = false;
 
+    $scope.showPasswortAlert = false;
+
     $scope.SubmitUser = function()
     {
         $scope.showError = false;
@@ -77,8 +79,8 @@ function AuthenticationController($scope, $http, UrlService) {
 
     $scope.CheckUser = function()
     {
+        $scope.showPasswortAlert = false;
         var url = UrlService.forRoot('#!/User');
-        console.log(url);
         $http(
             {
                 method: 'PATCH',
@@ -91,6 +93,15 @@ function AuthenticationController($scope, $http, UrlService) {
                 window.location.replace(url);
             },
             function error(response) {
+                $scope.showPasswortAlert = true;
+
+                $scope.user = {
+                    userName: null,
+                    firstName: null,
+                    lastName: null,
+                    eMail: null,
+                    password: null
+                };
             });
     }
 
