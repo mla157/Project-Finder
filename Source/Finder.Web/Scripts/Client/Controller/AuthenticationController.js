@@ -120,4 +120,11 @@ function AuthenticationController($scope, $http, UrlService) {
         }
     }
 
+    $scope.CheckIfUserIsLoggedOn = function()
+    {
+        if (sessionStorage.loggedInUser !== "") {
+            var url = UrlService.forRoot('#!/User');
+            window.location.replace(url);
+        }
+    }
 }
