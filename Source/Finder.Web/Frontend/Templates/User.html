@@ -13,4 +13,58 @@
         </center>
     </div>
 </div>
+    
+<div class="col-md-12" ng-if="userSetPreferences == true">
+    <div class="update-nag">
+        <div class="update-split"><i class="glyphicon glyphicon-check"></i></div>
+        <div class="update-text">Vorlieben sind gesetzt!</div>
+    </div>
+</div>
+<style>
+    body {
+        margin-top: 10px;
+        background: #ffffff;
+    }
+
+    .update-nag {
+        display: inline-block;
+        font-size: 14px;
+        text-align: left;
+        background-color: #ffffff;
+        height: 40px;
+        -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.2);
+        box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+        margin-bottom: 10px;
+    }
+
+    .update-nag:hover{
+        cursor: pointer;
+        -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.4);
+        box-shadow: 0 1px 1px 0 rgba(0,0,0,.3);
+    }
+
+    .update-nag > .update-split{
+        background: #337ab7;
+        width: 33px;
+        float: left;
+        color: #ffffff!important;
+        height: 100%;
+        text-align: center;
+    }
+
+    .update-nag > .update-split > .glyphicon{
+        position:relative;
+        top: calc(50% - 9px)!important; /* 50% - 3/4 of icon height */
+    }
+    .update-nag > .update-split.update-success{
+        background: #5cb85c!important;
+    }
+
+    .update-nag > .update-text{
+        line-height: 19px;
+        padding-top: 11px;
+        padding-left: 45px;
+        padding-right: 20px;
+    }
+</style>
 </body>

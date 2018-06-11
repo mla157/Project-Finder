@@ -14,6 +14,8 @@ function UsersController($scope, $http, UrlService)
         password: null
     };
 
+    $scope.userSetPreferences = false;
+
     $scope.checkIfUserLoggedIn = function ()
     {
         if (sessionStorage.loggedInUser !== "" || sessionStorage.loggedInUser === null)
@@ -40,8 +42,19 @@ function UsersController($scope, $http, UrlService)
 
     $scope.checkIfUserHasPreferences = function()
     {
-        
+        $http(
+            {
+                method: 'GET',
+                url: UrlService.forApi('Users') + "?username=" + sessionStorage.loggedInUser
+            }).then(
+            function success(response) {
+                $scope.userSetPreferences = true;
+            },
+            function error(response) {
+                console.log("Keine Preferences");
+            });
     }
 
     $scope.checkIfUserLoggedIn();
+    $scope.checkIfUserHasPreferences();
 }
