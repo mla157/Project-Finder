@@ -25,7 +25,7 @@ function UsersController($scope, $http, UrlService)
                 }).then(
                 function success(response)
                 {
-                    console.log(response.data);
+                    $scope.user = response.data;
                 },
                 function error(response) {
                     console.log(response.data);

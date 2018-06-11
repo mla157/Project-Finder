@@ -190,6 +190,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\theavengers.jpg" />
+    <Content Include="Images\user_placeholder.png" />
     <Content Include="Scripts\Client\Configuration\app.js" />
     <Content Include="Scripts\Client\Controller\HomeController.js" />
     <Content Include="Scripts\Client\Controller\MoviesController.js" />
