@@ -38,5 +38,10 @@ function UsersController($scope, $http, UrlService)
         }
     }
 
+    $scope.checkIfUserHasPreferences = function()
+    {
+        
+    }
+
     $scope.checkIfUserLoggedIn();
 }

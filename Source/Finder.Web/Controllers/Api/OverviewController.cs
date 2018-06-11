@@ -8,6 +8,7 @@ namespace Finder.Web.Controllers.Api
 
     public class OverviewController : ApiController
     {
+        //Gets alle Movie from the movie table and return a IEnurable to the frontend
         public IEnumerable Get()
         {
             var returnMovie = new MovieApiModel();

@@ -11,6 +11,7 @@ namespace Finder.Web.Controllers.Api
 
     public class AuthenticationController : ApiController
     {
+        //Check if the password is right
         public HttpResponseMessage Patch(UserApiModel user)
         {
                 var databaseConnection = new DatabaseConnection();
@@ -25,7 +26,7 @@ namespace Finder.Web.Controllers.Api
 
                 return this.Request.CreateResponse(HttpStatusCode.InternalServerError);
         }
-
+        //Gets the whole user with <username> as parameter
         public HttpResponseMessage Get(string username)
         {
             var databaseConnection = new DatabaseConnection();
@@ -41,6 +42,7 @@ namespace Finder.Web.Controllers.Api
             return this.Request.CreateResponse(HttpStatusCode.OK, returnUser);
         }
 
+        //Checks if a user with that username exists and if not it writes the new user to the DB
         public HttpResponseMessage Post(UserApiModel user)
         {
             var databaseConnection = new DatabaseConnection();
