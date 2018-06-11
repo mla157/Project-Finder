@@ -150,6 +150,7 @@
                 return count;
             }
             this.CloseConnection();
+            return 0;
         }
 
         public List<string> GetColumnNames(String tableName)
