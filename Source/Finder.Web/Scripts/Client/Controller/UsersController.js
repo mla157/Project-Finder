@@ -77,6 +77,8 @@ function UsersController($scope, $http, UrlService) {
 
     $scope.CheckUser = function()
     {
+        var url = UrlService.forRoot('#!/User');
+        console.log(url);
         $http(
             {
                 method: 'PATCH',
@@ -85,7 +87,8 @@ function UsersController($scope, $http, UrlService) {
             }).then(
             function success(response)
             {
-                console.log("YEAH");
+                localStorage.loggedInUser = $scope.user.userName;
+                window.location.replace(url);
             },
             function error(response) {
                 console.log("NOPE");
