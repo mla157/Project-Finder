@@ -146,10 +146,10 @@
                     reader = command.ExecuteReader();
                     count = reader.FieldCount;
                 }
+                this.CloseConnection();
                 return count;
             }
-            return count = -1;
-
+            this.CloseConnection();
         }
 
         public List<string> GetColumnNames(String tableName)
@@ -175,6 +175,7 @@
                     columnNames.Add(col.ColumnName);
                 }
             }
+            this.CloseConnection();
             return columnNames;
         }
 
@@ -204,6 +205,7 @@
                 }
 
             }
+            this.CloseConnection();
             return dataList;
         }
     }
