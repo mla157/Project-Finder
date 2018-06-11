@@ -77,9 +77,14 @@ function UsersController($scope, $http, UrlService) {
 
     $scope.CheckUser = function()
     {
+        $scope.user.eMail = "";
+        $scope.user.firstName = "";
+        $scope.user.lastName = "";
+
+        console.log($scope.user);
         $http(
             {
-                method: 'GET',
+                method: 'PATCH',
                 url: UrlService.forApi('Authentication'),
                 data: JSON.stringify($scope.user)
             }).then(

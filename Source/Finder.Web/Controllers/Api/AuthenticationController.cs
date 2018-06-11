@@ -10,19 +10,19 @@ namespace Finder.Web.Controllers.Api
 
     public class AuthenticationController : ApiController
     {
-        public HttpResponseMessage Get(UserApiModel user)
+        public HttpResponseMessage Patch(UserApiModel user)
         {
-            var data = new DatabaseConnection();
+                var databaseConnection = new DatabaseConnection();
 
-            //ExceptionBelow!
-            var queryData = data.GetData($"SELECT * FROM user WHERE benutzername = '" + user.userName + "'");
+                var queryData = databaseConnection.GetData($"SELECT passwort FROM user WHERE benutzername = '" + user.userName + "'");
 
-            if (queryData[0].GetValue(6).ToString() == user.password)
-            {
-                return this.Request.CreateResponse(HttpStatusCode.OK);
-            }
 
-            return this.Request.CreateResponse(HttpStatusCode.InternalServerError);
+                if (queryData[0].GetValue(0).ToString() == user.password)
+                {
+                    return this.Request.CreateResponse(HttpStatusCode.OK);
+                }
+
+                return this.Request.CreateResponse(HttpStatusCode.InternalServerError);
         }
 
         public HttpResponseMessage Post(UserApiModel user)
