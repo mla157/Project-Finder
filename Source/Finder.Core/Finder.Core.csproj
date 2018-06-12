@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="Models\DatabaseConnection.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\PlaylistController.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
