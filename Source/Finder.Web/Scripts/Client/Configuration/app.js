@@ -28,11 +28,11 @@ function config($routeProvider) {
         }
         )
         .when(
-            '/Tinder',
-            {
-                templateUrl: rootViewTemplates + '/Frontend/Templates/Tinder.html',
-                controller: 'TinderController'
-            }
+        '/Tinder',
+        {
+            templateUrl: rootViewTemplates + '/Frontend/Templates/Tinder.html',
+            controller: 'TinderController'
+        }
         )
         .when(
         '/User',
@@ -56,19 +56,19 @@ function config($routeProvider) {
         }
         )
         .when(
-            '/Finder',
-            {
-                templateUrl: rootViewTemplates + '/Frontend/Templates/Finder.html',
-                controller: 'MoviesController'
-            }
-         )
+        '/Finder',
+        {
+            templateUrl: rootViewTemplates + '/Frontend/Templates/Finder.html',
+            controller: 'MoviesController'
+        }
+        )
         .when(
-            '/Overview',
-            {
-                templateUrl: rootViewTemplates + '/Frontend/Templates/Overview.html',
-                controller: 'OverviewController'
-            }
-    )
+        '/Overview',
+        {
+            templateUrl: rootViewTemplates + '/Frontend/Templates/Overview.html',
+            controller: 'OverviewController'
+        }
+        )
         .otherwise(
         {
             redirectTo: '/'

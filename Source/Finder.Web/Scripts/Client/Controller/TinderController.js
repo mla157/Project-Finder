@@ -13,7 +13,6 @@ function TinderController($scope, $http, UrlService) {
         // Define cards
         var cards = [];
 
-
             $http(
                 {
                     method: 'GET',
