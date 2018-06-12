@@ -43,7 +43,7 @@ namespace Finder.Web.Controllers.Api
             return this.Request.CreateResponse(HttpStatusCode.OK, returnUser);
         }
 
-        //Checks if a user with that username exists and if not it writes the new user to the DB
+        //Checks if a user with that username exists and if not it writes the new user to the DB and creates a new playlist
         public HttpResponseMessage Post(UserApiModel user)
         {
             var databaseConnection = new DatabaseConnection();
