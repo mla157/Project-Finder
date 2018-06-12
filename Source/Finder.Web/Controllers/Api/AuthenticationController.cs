@@ -8,6 +8,7 @@ namespace Finder.Web.Controllers.Api
     using System.Web.Management;
     using Core.Models;
     using Models;
+    using Newtonsoft.Json;
 
     public class AuthenticationController : ApiController
     {
@@ -58,6 +59,13 @@ namespace Finder.Web.Controllers.Api
             try
             {
                 databaseConnection.QueryInsert($"INSERT INTO user (`benutzername`, `vorname`, `nachname`, `passwort`) VALUES (\'{user.userName}\', \'{user.firstName}\' , \'{user.lastName}\', \'{user.password}\')");
+
+                var queryUserId =
+                    databaseConnection.GetData($"SELECT iduser FROM user WHERE benutzername = '" + user.userName + "'");
+
+                var userId = queryUserId[0].GetValue(0);
+
+                databaseConnection.QueryInsert($"INSERT INTO playlist (`User_idUser`) VALUES (\'{userId}\')");
             }
             catch (Exception e)
             {

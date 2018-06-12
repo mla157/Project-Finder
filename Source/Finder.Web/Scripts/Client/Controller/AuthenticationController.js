@@ -71,6 +71,7 @@ function AuthenticationController($scope, $http, UrlService) {
             {
                 $scope.showRegisterForm = false;
                 $scope.showSucess = true;
+                sessionStorage.loggedInUser = $scope.user.userName;
             },
             function error(response) {
                 $scope.showUserError = true;
