@@ -24,8 +24,6 @@ function TinderController($scope, $http, UrlService) {
                         var counter = 0;
                         for (var i = 0; i < response.data.length; ++i) {
                             var movie = response.data[i];
-                            console.log(movie);
-                            console.log(movie.imageURL);
                             if (movie.imageUrl == "")
                             {
                                 var push = new Tindercardsjs.card(

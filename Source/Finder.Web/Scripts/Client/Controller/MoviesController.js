@@ -17,7 +17,6 @@ function MoviesController($scope, $http, UrlService)
 
     $scope.getMovie = function(genre)
     {
-        console.log(genre);
         $scope.showAlert = true;
         $scope.showMovie = false;
 

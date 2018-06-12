@@ -11,7 +11,7 @@ namespace Finder.Web.Controllers.Api
 
     public class MoviesController : ApiController
     {
-        //In this method the connection to DB will be initialized and the movie date will be fetched and returned to the Frontend
+        //Gets a alle movies a specific genre and the return a random movie to the frontend
         public HttpResponseMessage Get(string genre)
         {
             var returnMovie = new MovieApiModel();

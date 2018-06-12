@@ -7,7 +7,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
+<body class="ng-cloak">
     <input type="hidden" id="rootPath" value="@HttpContext.Current.Request.ApplicationPath" />
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -31,15 +31,15 @@
                         <a href="#!Overview">Overview</a>
                     </li>
                     <li>
-                        <a href="#!User">User</a>
-                    </li>
-                    <li>
-                        <a href="#!About">About</a>
+                        <a href="#!User">Userbereich</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a href="#!Login">Login</a>
+                    </li>
+                    <li>
+                        <a href="#!Logout">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -60,7 +60,7 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/angular")
     @Scripts.Render("~/bundles/client")
-    @Scripts.Render("~/bundles/swipingcards") 
+    @Scripts.Render("~/bundles/swipingcards")
     @(this.RenderSection("scripts", required: false))
 </body>
 </html>

@@ -21,7 +21,6 @@ function OverviewController($scope, $http, UrlService) {
                 if (response.data) {
                     for (var i = 0; i < response.data.length; ++i) {
                         var movie = response.data[i];
-                        console.log(movie);
 
                         $scope.movies.push(
                             {

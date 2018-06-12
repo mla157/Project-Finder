@@ -4,75 +4,57 @@ app.controller("UsersController", UsersController);
 
 UsersController.$inject = ["$scope", "$http", "UrlService"];
 
-function UsersController($scope, $http, UrlService) {
-
+function UsersController($scope, $http, UrlService)
+{
     $scope.user = {
         userName: null,
         firstName: null,
         lastName: null,
         eMail: null,
-        password :null
+        password: null
     };
 
-    $scope.showError = false;
+    $scope.userSetPreferences = false;
 
-    $scope.showRegisterForm = true;
-
-    $scope.showSucess = false;
-
-    $scope.SubmitUser = function()
+    $scope.checkIfUserLoggedIn = function ()
     {
-        $scope.showError = false;
-        $scope.showUserError = false;
-
-        if (!$scope.Validate()) {
-
-            $scope.createButtonDisable = false;
-            return;
-        }
-
-        $scope.WriterUserToDB();
-
-        console.log($scope.user);
-    }
-
-    $scope.Validate = function ()
-    {
-        var userMailValid = /\S+@\S+\.\S+/.test($scope.user.eMail);
-
-        if ($scope.user.eMail != null) {
-            if (!userMailValid)
-            {
-                $scope.showError = true;
-                return false;
-            }
-        }
-
-        if (pw1.value !== pw2.value)
+        if (sessionStorage.loggedInUser !== "" || sessionStorage.loggedInUser === null)
         {
-            $scope.showError = true;
-            return false;
+            $http(
+                {
+                    method: 'GET',
+                    url: UrlService.forApi('Authentication') + "?username=" + sessionStorage.loggedInUser
+                }).then(
+                function success(response)
+                {
+                    $scope.user = response.data;
+                },
+                function error(response) {
+                    console.log(response.data);
+                });
         }
-
-        return true;
+        else
+        {
+            var url = UrlService.forRoot('#!/Login');
+            window.location.replace(url);    
+        }
     }
 
-    $scope.WriterUserToDB = function()
+    $scope.checkIfUserHasPreferences = function()
     {
         $http(
             {
-                method: 'POST',
-                url: UrlService.forApi('Authentication'),
-                data: JSON.stringify($scope.user)
+                method: 'GET',
+                url: UrlService.forApi('Users') + "?username=" + sessionStorage.loggedInUser
             }).then(
-            function success(response)
-            {
-                $scope.showRegisterForm = false;
-                $scope.showSucess = true;
+            function success(response) {
+                $scope.userSetPreferences = true;
             },
             function error(response) {
-                $scope.showUserError = true;
+                console.log("Keine Preferences");
             });
     }
 
+    $scope.checkIfUserLoggedIn();
+    $scope.checkIfUserHasPreferences();
 }

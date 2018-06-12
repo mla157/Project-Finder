@@ -45,14 +45,21 @@ function config($routeProvider) {
         '/Login',
         {
             templateUrl: rootViewTemplates + '/Frontend/Templates/Login.html',
-            controller: 'UsersController'
+            controller: 'AuthenticationController'
         }
+    )
+        .when(
+            '/Logout',
+            {
+                templateUrl: rootViewTemplates + '/Frontend/Templates/Logout.html',
+                controller: 'AuthenticationController'
+            }
         )
         .when(
         '/Register',
         {
             templateUrl: rootViewTemplates + '/Frontend/Templates/Register.html',
-            controller: 'UsersController'
+            controller: 'AuthenticationController'
         }
         )
         .when(
