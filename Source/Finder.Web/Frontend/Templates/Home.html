@@ -1,13 +1,34 @@
-﻿<div class="text-center">
-    <div class="container">
-        <div class="jumbotron">
-            <h1>Finder - Die Filmsuche</h1>
-            <p>Finden Sie Filme die zu Ihnen passen.</p>
-        </div>
-    </div>
+﻿<!-- The video -->
+<video autoplay muted loop id="myVideo">
+    <source src="Images/Background.mp4" type="video/mp4">
+</video>
 
-    <a href="#!Finder" class="btn-lg btn-primary" role="button">Zur Filmsuche</a>
-    <a href="#!Tinder" class="btn-lg btn-primary" role="button">Swipe it</a>
-    <a href="#!Overview" class="btn-lg btn-primary" role="button">Overview</a>
-    <a href="#!Login" class="btn-lg btn-primary" role="button">Login</a>
+<div class="content">
+    <h1>Finder - Die Filmsuche</h1>
 </div>
+
+
+<style>
+    /* Style the video: 100% width and height to cover the entire window */
+    #myVideo {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+    }
+
+    /* Add some content at the bottom of the video/page */
+    .content {
+        position: fixed;
+        bottom: 0;
+        color: #ffffff;
+        width: 100%;
+        padding: 100px;
+    }
+
+    .btn-primary-outline {
+        background-color: transparent;
+        border-color: #ccc;
+    }
+</style>
