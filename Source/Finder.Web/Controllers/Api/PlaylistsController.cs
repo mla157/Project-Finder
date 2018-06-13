@@ -13,14 +13,14 @@ namespace Finder.Web.Controllers.Api
     {
         private readonly DatabaseConnection dbConnection = new DatabaseConnection();
 
-        public bool AddMovieToPlaylist(int userID, int movieID)
+        public bool AddMovieToPlaylist(int userId, int movieId)
         {
             // Check if movie is already in playlist
-            var queryData = this.dbConnection.GetData($"SELECT * FROM Playlist_has_movie WHERE Playlist_User_idUser = '" + userID + "' AND Movie_idMovie = '" + movieID + "'");
+            var queryData = this.dbConnection.GetData($"SELECT * FROM Playlist_has_movie WHERE Playlist_User_idUser = '" + userId + "' AND Movie_idMovie = '" + movieId + "'");
             if (queryData.Any())
             {
                 // Add to list
-                this.dbConnection.QueryInsert($"INSERT INTO Playlist_has_movie (`Movie_idMovie`, `Playlist_User_idUser`) VALUES (\'{movieID}\', \'{userID}\')");
+                this.dbConnection.QueryInsert($"INSERT INTO Playlist_has_movie (`Movie_idMovie`, `Playlist_User_idUser`) VALUES (\'{movieId}\', \'{userId}\')");
                 return true;
             }
             else
