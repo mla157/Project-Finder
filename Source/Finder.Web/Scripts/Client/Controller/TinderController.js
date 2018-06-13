@@ -52,9 +52,9 @@ function TinderController($scope, $http, UrlService) {
                             console.log('Swiped ' + event.direction + ', cardid is ' + event.cardid + ' and target is:');
                             console.log(event.card);
 
+                            console.log($scope.showMovieWasAdded);
 
-
-                            if (event.direction === "right")
+                            if (event.direction === "right" && sessionStorage.loggedInUser !== "")
                             {
                                 $scope.playlist = {
                                     username: null,
@@ -70,11 +70,34 @@ function TinderController($scope, $http, UrlService) {
                                         url: UrlService.forApi('Playlists'),
                                         data: $scope.playlist
                                     }).then(
-                                    function success(response) {
-                                        $scope.user = response.data;
+                                    function success(response)
+                                    {
+                                        $.notify({
+                                            // options
+                                            icon: 'glyphicon glyphicon-ok',
+                                            message: 'Der Film wurde Ihrer persönlichen Watchlist hinzugefügt.'
+                                        }, {
+                                            // settings
+                                                type: 'success',
+                                                offset: {
+                                                    x: 50,
+                                                    y: 80
+                                                }
+                                        });
                                     },
                                     function error(response) {
-                                        console.log(response.data);
+                                        $.notify({
+                                            // options
+                                            icon: 'glyphicon glyphicon-remove',
+                                            message: 'Film bereits in Ihrer Watchlist.'
+                                        }, {
+                                            // settings
+                                            type: 'warning',
+                                            offset: {
+                                                x: 50,
+                                                y: 80
+                                            }
+                                        });
                                     });
                             }
                         });

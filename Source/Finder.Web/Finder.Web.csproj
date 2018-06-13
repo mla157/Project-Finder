@@ -209,6 +209,7 @@
     <Content Include="Scripts\Framework\angular-route.min.js" />
     <Content Include="Scripts\Framework\angular.js" />
     <Content Include="Scripts\Framework\angular.min.js" />
+    <Content Include="Scripts\Framework\bootstrap-notify.min.js" />
     <Content Include="Scripts\Framework\bootstrap.js" />
     <Content Include="Scripts\Framework\bootstrap.min.js" />
     <None Include="Scripts\Framework\jquery-1.10.2.intellisense.js" />

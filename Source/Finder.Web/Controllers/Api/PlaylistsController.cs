@@ -46,6 +46,10 @@ namespace Finder.Web.Controllers.Api
                 this.dbConnection.QueryInsert(
                     $"INSERT INTO Playlist_has_movie (`Movie_idMovie`, `Playlist_User_idUser`) VALUES (\'{movieId}\', \'{userId}\')");
             }
+            else
+            {
+                throw new Exception();
+            }
         }
 
         public HttpResponseMessage Delete(PlaylistApiModel playlistApi)

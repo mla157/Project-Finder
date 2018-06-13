@@ -17,6 +17,7 @@
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                 "~/Scripts/Framework/bootstrap.js",
+                "~/Scripts/Framework/bootstrap-notify.min.js",
                 "~/Scripts/Framework/respond.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
