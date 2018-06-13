@@ -90,6 +90,8 @@ function AuthenticationController($scope, $http, UrlService) {
             function success(response)
             {
                 sessionStorage.loggedInUser = $scope.user.userName;
+                document.getElementById('logout').style.visibility = 'visible';
+                document.getElementById('login').style.visibility = 'hidden';
                 window.location.replace(url);
             },
             function error(response) {
@@ -113,6 +115,8 @@ function AuthenticationController($scope, $http, UrlService) {
             sessionStorage.loggedInUser = "";
             var url = UrlService.forRoot('#!/Login');
             window.location.replace(url);
+            document.getElementById('logout').style.visibility = 'hidden';
+            document.getElementById('login').style.visibility = 'visible';
         }
         else
         {

@@ -36,15 +36,20 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="#!Login">Login</a>
+                    <a id="login" href="#!Login">Login</a>
                 </li>
                 <li>
-                    <a ng-click="Logout()">Logout</a>
+                    <a id="logout" href="#!Logout">Logout</a>
                 </li>
             </ul>
         </div>
     </div>
 </div>
+    
+<script>
+    document.getElementById('login').style.visibility = 'visible';
+    document.getElementById('logout').style.visibility = 'hidden';
+</script>
 <div class="container body-content">
     <br />
     <div ng-view>
