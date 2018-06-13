@@ -7,6 +7,7 @@ using System.Web.Http;
 
 namespace Finder.Web.Controllers.Api
 {
+    using System.Collections;
     using System.Web.WebPages;
     using Core.Models;
     using Models;
@@ -79,18 +80,38 @@ namespace Finder.Web.Controllers.Api
 
         }
 
-        public HttpResponseMessage Get(string username)
+        public IEnumerable Get(string username)
         {
-            try
-            {
-                var userId = Extensions.QueryUserId(username);
 
-                var returnData = this.ShowMoviePlaylist(userId);
-                return this.Request.CreateResponse(HttpStatusCode.OK, returnData);
-            }
-            catch (Exception e)
+            var userId = Extensions.QueryUserId(username);
+
+            var resultData = this.ShowMoviePlaylist(userId);
+
+            var movieData = new List<object[]>();
+            var counter = 0;
+
+
+            foreach (var result in resultData)
             {
-                return this.Request.CreateResponse(HttpStatusCode.InternalServerError);
+                movieData.AddRange(
+                    this.dbConnection.GetData(
+                        $"SELECT * FROM MOVIE WHERE idMovie = '" + resultData[counter].GetValue(0) + "'"));
+                counter++;
+            }
+
+            counter = 0;
+
+            foreach (var movie in movieData)
+            {
+                yield return new MovieApiModel()
+                {
+                    titleName = movieData[counter].GetValue(1).ToString(),
+                    releaseDate = movieData[counter].GetValue(2).ToString(),
+                    description = movieData[counter].GetValue(4).ToString(),
+                    imageUrl = movieData[counter].GetValue(6).ToString()
+                };
+
+                counter++;
             }
         }
 
@@ -101,7 +122,7 @@ namespace Finder.Web.Controllers.Api
         /// <returns></returns>
         public List<object[]> ShowMoviePlaylist(int userID)
         {
-            var queryData = this.dbConnection.GetData($"SELECT * FROM Playlist_has_movie WHERE Playlist_User_idUser = '" + userID + "'");
+            var queryData = this.dbConnection.GetData($"SELECT Movie_idMovie FROM Playlist_has_movie WHERE Playlist_User_idUser = '" + userID + "'");
             return queryData;
         }
     }

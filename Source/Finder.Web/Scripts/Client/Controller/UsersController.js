@@ -14,6 +14,8 @@ function UsersController($scope, $http, UrlService)
         password: null
     };
 
+    $scope.movies = [];
+
     $scope.userSetPreferences = false;
 
     $scope.checkIfUserLoggedIn = function ()
@@ -55,6 +57,36 @@ function UsersController($scope, $http, UrlService)
             });
     }
 
+
+    $scope.getPlaylist = function ()
+    {
+        $http(
+            {
+                method: 'GET',
+                url: UrlService.forApi('Playlists') + "?username=" + sessionStorage.loggedInUser
+            }).then(
+            function success(response) {
+                if (response.data) {
+                    for (var i = 0; i < response.data.length; ++i) {
+                        var movie = response.data[i];
+
+                        $scope.movies.push(
+                            {
+                                titleName: movie.titleName,
+                                releaseDate: movie.releaseDate,
+                                description: movie.description
+                            });
+                    }
+                }
+            },
+            function error(response) {
+                $scope.showError = true;
+                $scope.showAlert = false;
+            });
+        $scope.showAlert = false;
+    };
+
     $scope.checkIfUserLoggedIn();
     $scope.checkIfUserHasPreferences();
+    $scope.getPlaylist();
 }

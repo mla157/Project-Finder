@@ -18,7 +18,5 @@ namespace Finder.Web.Extensions
 
             return (int) queryData[0].GetValue(0);
         }
-
-        //public static int 
     }
 }

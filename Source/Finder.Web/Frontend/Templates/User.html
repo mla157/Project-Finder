@@ -20,6 +20,29 @@
         <div class="update-text">Vorlieben sind gesetzt!</div>
     </div>
 </div>
+    
+<table class="table table-bordered" style="width: 100%">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Aktion</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-show="movies && movies.length > 0" ng-repeat="movie in movies">
+            <td>{{movie.titleName}}</td>
+            <td>{{movie.description}}</td>
+            <td>
+                <div class="btn btn-danger" ng-click="deleteMovieFromWatchlist(movie);">L&ouml;schen</div>
+            </td>
+        </tr>
+    <tr ng-show="!movies || movies.length == 0">
+        <td colspan="7">Sie haben keine Filme in der Watchlist.</td>
+    </tr>
+    </tbody>
+</table>    
+
 <style>
     body {
         margin-top: 10px;

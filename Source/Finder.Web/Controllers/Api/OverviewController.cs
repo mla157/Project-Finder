@@ -17,7 +17,7 @@ namespace Finder.Web.Controllers.Api
 
             var resultData = databaseConnection.GetData($"SELECT * FROM movie");
 
-            int counter = 0;
+            var counter = 0;
 
             foreach (var movie in resultData)
             {
