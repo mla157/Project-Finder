@@ -18,7 +18,6 @@ namespace Finder.Web.Controllers.Api
             var databaseConnection = new DatabaseConnection();
             var queryData = databaseConnection.GetData($"SELECT preference FROM user WHERE benutzername = '" + username + "'");
 
-
             if (queryData.Any())
             {
                 if (queryData[0].GetValue(0).ToString() != "")
