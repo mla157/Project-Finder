@@ -24,6 +24,10 @@ function AuthenticationController($scope, $http, UrlService) {
 
     $scope.showNotLoggedIn = false;
 
+    $scope.checkboxModel = {
+        value1: true
+    };
+
     $scope.SubmitUser = function()
     {
         $scope.showError = false;
@@ -31,7 +35,6 @@ function AuthenticationController($scope, $http, UrlService) {
 
         if (!$scope.Validate()) {
 
-            $scope.createButtonDisable = false;
             return;
         }
 
@@ -51,6 +54,12 @@ function AuthenticationController($scope, $http, UrlService) {
         }
 
         if (pw1.value !== pw2.value)
+        {
+            $scope.showError = true;
+            return false;
+        }
+
+        if ($scope.checkboxModel.value1 == false)
         {
             $scope.showError = true;
             return false;

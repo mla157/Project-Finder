@@ -28,8 +28,6 @@ namespace Finder.Web.Controllers.Api
                 }
             }
 
-
-
             return this.Request.CreateResponse(HttpStatusCode.InternalServerError);
         }
         //Gets the whole user with <username> as parameter
