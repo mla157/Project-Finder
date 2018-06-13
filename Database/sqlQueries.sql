@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `movie` (
   CONSTRAINT `fk_Movie_Genre` FOREIGN KEY (`Genre`) REFERENCES `genre` (`idGenre`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
 
--- Dumping data for table finderdb.movie: ~0 rows (approximately)
+-- Dumping data for table finderdb.movie: ~50 rows (approximately)
 /*!40000 ALTER TABLE `movie` DISABLE KEYS */;
 INSERT INTO `movie` (`idMovie`, `title`, `year`, `Genre`, `description`, `language`, `imageUrl`) VALUES
 	(1, 'Avengers: Infinity War', '2018-04-26', 1, 'Avengers: Infinity War: Im ultimativen Marvel-Superhelden-Spektakel treten die Avengers, Doctor Strange und die Guardians of the Galaxy gemeinsam gegen den Über-Bösewicht Thanos an.', 'De-DE', 'Images\\theavengers.jpg'),
@@ -211,8 +211,13 @@ CREATE TABLE IF NOT EXISTS `playlist` (
   CONSTRAINT `fk_Playlist_User1` FOREIGN KEY (`User_idUser`) REFERENCES `user` (`idUser`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table finderdb.playlist: ~0 rows (approximately)
+-- Dumping data for table finderdb.playlist: ~4 rows (approximately)
 /*!40000 ALTER TABLE `playlist` DISABLE KEYS */;
+INSERT INTO `playlist` (`User_idUser`, `playlistCreated`) VALUES
+	(10, NULL),
+	(11, NULL),
+	(12, NULL),
+	(13, NULL);
 /*!40000 ALTER TABLE `playlist` ENABLE KEYS */;
 
 -- Dumping structure for table finderdb.playlist_has_movie
@@ -226,8 +231,24 @@ CREATE TABLE IF NOT EXISTS `playlist_has_movie` (
   CONSTRAINT `fk_Movie_has_Playlist_Playlist1` FOREIGN KEY (`Playlist_User_idUser`) REFERENCES `playlist` (`User_idUser`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table finderdb.playlist_has_movie: ~0 rows (approximately)
+-- Dumping data for table finderdb.playlist_has_movie: ~18 rows (approximately)
 /*!40000 ALTER TABLE `playlist_has_movie` DISABLE KEYS */;
+INSERT INTO `playlist_has_movie` (`Movie_idMovie`, `Playlist_User_idUser`) VALUES
+	(41, 10),
+	(42, 10),
+	(42, 11),
+	(43, 11),
+	(44, 11),
+	(45, 11),
+	(46, 10),
+	(46, 11),
+	(47, 11),
+	(48, 10),
+	(48, 11),
+	(49, 10),
+	(49, 11),
+	(50, 10),
+	(50, 11);
 /*!40000 ALTER TABLE `playlist_has_movie` ENABLE KEYS */;
 
 -- Dumping structure for table finderdb.user
@@ -244,10 +265,15 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`idUser`),
   UNIQUE KEY `idUser_UNIQUE` (`idUser`),
   UNIQUE KEY `Benutzername_UNIQUE` (`benutzername`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
--- Dumping data for table finderdb.user: ~0 rows (approximately)
+-- Dumping data for table finderdb.user: ~4 rows (approximately)
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` (`idUser`, `benutzername`, `vorname`, `nachname`, `geburtsdatum`, `passwort`, `preference`, `userCreated`, `userChanged`) VALUES
+	(10, 'test', 'Max', 'Herr', '0000-00-00', 'test', NULL, '2018-06-12 08:35:58', '2018-06-12 08:35:58'),
+	(11, 'bjoern', 'Bjoern', 'Bullmann', '0000-00-00', '1234', '1', '2018-06-12 08:37:29', '2018-06-12 08:37:29'),
+	(12, 'test1', 'test1234', 'Test', '0000-00-00', 'test', NULL, '2018-06-12 08:40:17', '2018-06-12 08:40:17'),
+	(13, 'maxb', 'max', 'leon', '0000-00-00', '1234', NULL, '2018-06-12 08:41:00', '2018-06-12 08:41:00');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 -- Dumping structure for table finderdb.watchlist
