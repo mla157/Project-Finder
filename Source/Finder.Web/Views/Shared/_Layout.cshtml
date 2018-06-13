@@ -64,15 +64,3 @@
 @(this.RenderSection("scripts", required: false))
 </body>
 </html>
-
-<script>
-    $scope.LogoutUser = function()
-    {
-        if (sessionStorage.loggedInUser !== "")
-        {
-            sessionStorage.loggedInUser = "";
-            var url = UrlService.forRoot('#!/Login');
-            window.location.replace(url);
-        }
-    }
-</script>
