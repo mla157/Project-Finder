@@ -47,9 +47,36 @@ function TinderController($scope, $http, UrlService) {
 
                         $scope.showAlert = false;
 
-                        Tindercardsjs.render(cards, $('#main'), function (event) {
+                        Tindercardsjs.render(cards, $('#main'), function (event)
+                        {
                             console.log('Swiped ' + event.direction + ', cardid is ' + event.cardid + ' and target is:');
                             console.log(event.card);
+
+
+
+                            if (event.direction === "right")
+                            {
+                                $scope.playlist = {
+                                    username: null,
+                                    movieID: null
+                                };
+
+                                $scope.playlist.username = sessionStorage.loggedInUser;
+                                $scope.playlist.movieID = +event.cardid + 1;
+
+                                $http(
+                                    {
+                                        method: 'Patch',
+                                        url: UrlService.forApi('Playlists'),
+                                        data: $scope.playlist
+                                    }).then(
+                                    function success(response) {
+                                        $scope.user = response.data;
+                                    },
+                                    function error(response) {
+                                        console.log(response.data);
+                                    });
+                            }
                         });
                     }
                 },
