@@ -86,6 +86,54 @@ function UsersController($scope, $http, UrlService)
         $scope.showAlert = false;
     };
 
+    $scope.deleteMovieFromPlaylist = function (movie)
+    {
+        $scope.playlistMovieDeleteItem = {
+            username: sessionStorage.loggedInUser,
+            movieId : null,
+            movieTitle: movie.titleName
+        };
+
+        $http(
+            {
+                method: 'POST',
+                url: UrlService.forApi('Playlists'),
+                data: JSON.stringify($scope.playlistMovieDeleteItem)
+            }).then(
+            function success(response)
+            {
+                $.notify({
+                    // options
+                    icon: 'glyphicon glyphicon-ok',
+                    message: 'Der Film wurde von Ihrer persönlichen Watchlist gelöscht.'
+                }, {
+                    // settings
+                    type: 'success',
+                    offset: {
+                        x: 50,
+                        y: 80
+                    }
+                });
+                $scope.movies = [];
+                $scope.getPlaylist();
+            },
+            function error(response) {
+                $.notify({
+                    // options
+                    icon: 'glyphicon glyphicon-remove',
+                    message: 'Der Film konnte nicht gelöscht werden.'
+                }, {
+                    // settings
+                    type: 'error',
+                    offset: {
+                        x: 50,
+                        y: 80
+                    }
+                });
+            });
+
+    };
+
     $scope.checkIfUserLoggedIn();
     $scope.checkIfUserHasPreferences();
     $scope.getPlaylist();

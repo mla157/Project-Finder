@@ -11,5 +11,6 @@ namespace Finder.Web.Models
 
         public int movieId;
 
+        public string movieTitle;
     }
 }
