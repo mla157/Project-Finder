@@ -1,8 +1,0 @@
-F:\VSProjects\MysqlConnector\MysqlConnector\bin\Debug\MysqlConnector.exe.config
-F:\VSProjects\MysqlConnector\MysqlConnector\bin\Debug\MysqlConnector.exe
-F:\VSProjects\MysqlConnector\MysqlConnector\bin\Debug\MysqlConnector.pdb
-F:\VSProjects\MysqlConnector\MysqlConnector\obj\Debug\MysqlConnector.csprojResolveAssemblyReference.cache
-F:\VSProjects\MysqlConnector\MysqlConnector\obj\Debug\MysqlConnector.exe
-F:\VSProjects\MysqlConnector\MysqlConnector\obj\Debug\MysqlConnector.pdb
-F:\VSProjects\MysqlConnector\MysqlConnector\bin\Debug\MySql.Data.dll
-F:\VSProjects\MysqlConnector\MysqlConnector\bin\Debug\MySql.Data.xml

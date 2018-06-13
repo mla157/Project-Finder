@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 //Attention: This class is only for POC!
 namespace Finder.Core.Models
 {
-    using System.Runtime.InteropServices.ComTypes;
-
     public class Movie
     {
         //movie properties

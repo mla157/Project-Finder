@@ -17,6 +17,7 @@
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                 "~/Scripts/Framework/bootstrap.js",
+                "~/Scripts/Framework/bootstrap-notify.min.js",
                 "~/Scripts/Framework/respond.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
@@ -28,7 +29,16 @@
                     "~/Scripts/Client/Configuration/app.js",
                     "~/Scripts/Client/Services/UrlService.js",
                     "~/Scripts/Client/Controller/MoviesController.js",
+                    "~/Scripts/Client/Controller/OverviewController.js",
+                    "~/Scripts/Client/Controller/TinderController.js",
+                    "~/Scripts/Client/Controller/AuthenticationController.js",
+                    "~/Scripts/Client/Controller/UsersController.js",
                     "~/Scripts/Client/Controller/HomeController.js"));
+
+            bundles.Add(
+            new ScriptBundle("~/bundles/swipingcards").Include(
+                "~/Scripts/Framework/hammer.min.js",
+                "~/Scripts/Framework/tindercards.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/bootstrap.css",

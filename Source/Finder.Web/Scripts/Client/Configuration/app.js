@@ -28,29 +28,53 @@ function config($routeProvider) {
         }
         )
         .when(
+        '/Tinder',
+        {
+            templateUrl: rootViewTemplates + '/Frontend/Templates/Tinder.html',
+            controller: 'TinderController'
+        }
+        )
+        .when(
         '/User',
         {
-            templateUrl: rootViewTemplates + '/Frontend/Templates/User.html'
+            templateUrl: rootViewTemplates + '/Frontend/Templates/User.html',
+            controller: 'UsersController'
         }
         )
         .when(
         '/Login',
         {
-            templateUrl: rootViewTemplates + '/Frontend/Templates/Login.html'
+            templateUrl: rootViewTemplates + '/Frontend/Templates/Login.html',
+            controller: 'AuthenticationController'
         }
+    )
+        .when(
+            '/Logout',
+            {
+                templateUrl: rootViewTemplates + '/Frontend/Templates/Logout.html',
+                controller: 'AuthenticationController'
+            }
         )
         .when(
         '/Register',
         {
-            templateUrl: rootViewTemplates + '/Frontend/Templates/Register.html'
+            templateUrl: rootViewTemplates + '/Frontend/Templates/Register.html',
+            controller: 'AuthenticationController'
         }
         )
         .when(
-            '/Finder',
-            {
-                templateUrl: rootViewTemplates + '/Frontend/Templates/Finder.html',
-                controller: 'MoviesController'
-            }
+        '/Finder',
+        {
+            templateUrl: rootViewTemplates + '/Frontend/Templates/Finder.html',
+            controller: 'MoviesController'
+        }
+        )
+        .when(
+        '/Overview',
+        {
+            templateUrl: rootViewTemplates + '/Frontend/Templates/Overview.html',
+            controller: 'OverviewController'
+        }
         )
         .otherwise(
         {

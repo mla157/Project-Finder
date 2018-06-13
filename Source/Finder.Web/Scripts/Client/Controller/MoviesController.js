@@ -7,6 +7,7 @@ MoviesController.$inject = ["$scope", "$http", "UrlService"];
 function MoviesController($scope, $http, UrlService)
 {
     $scope.showAlert = false;
+    $scope.showError = false;
 
     $scope.movie = {
         titleName: null,
@@ -16,7 +17,6 @@ function MoviesController($scope, $http, UrlService)
 
     $scope.getMovie = function(genre)
     {
-        console.log(genre);
         $scope.showAlert = true;
         $scope.showMovie = false;
 
@@ -30,8 +30,10 @@ function MoviesController($scope, $http, UrlService)
                 $scope.showAlert = false;
                 $scope.showMovie = true;
             },
-            function error(response) {
-
+            function error(response)
+            {
+                $scope.showError = true;
+                $scope.showAlert = false;
             });
     };
 };

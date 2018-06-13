@@ -1,0 +1,45 @@
+﻿<div ng-if="showError == true" class="alert alert-danger" role="alert">
+    Leider gab es ein Fehler. Bitte versuchen Sie es später nocheinmal!
+</div>
+
+<table class="table table-bordered" style="width: 100%">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-show="movies && movies.length > 0" ng-repeat="movie in movies">
+        <td>{{movie.titleName}}</td>
+        <td>{{movie.description}}</td>
+        <td>{{movie.releaseDate}}</td>
+    </tr>
+    <tr ng-show="!movies || movies.length == 0">
+        <td colspan="7">Nix da.</td>
+    </tr>
+    </tbody>
+</table>
+
+
+<div ng-if="showAlert == true" class="spinner">
+    <div class="cube1"></div>
+    <div class="cube2"></div>
+</div>
+
+<style>
+    table, th, td {
+        border: 1px solid grey;
+        border-collapse: collapse;
+        padding: 5px;
+    }
+
+    table tr:nth-child(odd) {
+        background-color: #f1f1f1;
+    }
+
+    table tr:nth-child(even) {
+        background-color: #ffffff;
+    }
+</style>

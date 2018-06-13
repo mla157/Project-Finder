@@ -6,5 +6,8 @@ HomeController.$inject = ["$scope", "$http", "UrlService"];
 
 function HomeController($scope, $http, UrlService)
 {
-
+    if (sessionStorage.loggedInUser == null)
+    {
+        sessionStorage.loggedInUser = "";
+    }
 }

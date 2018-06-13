@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using MySql.Data.MySqlClient;
-using System.Data;
-
-namespace Finder.Core.Models
+﻿namespace Finder.Core.Models
 {
+    using System;
+    using System.Collections.Generic;
+    using MySql.Data.MySqlClient;
+    using System.Data;
+
     /// <summary>
     /// Class to connect to a mysql database server
     /// </summary>
-    class DatabaseConnection
+    public class DatabaseConnection
     {
         /// <summary>
         /// Database Specs
@@ -33,10 +33,11 @@ namespace Finder.Core.Models
         {
             //############# ENTER LOG IN HERE #############################################################
             var conn_string = new MySqlConnectionStringBuilder();
-            conn_string.Server = "";
-            conn_string.Database = "";
-            conn_string.UserID = "";
-            conn_string.Password = "";
+            conn_string.Server = "127.0.0.1";
+            conn_string.Database = "finderdb";
+            conn_string.UserID = "root";
+            conn_string.Password = "DEINPASSWORT";
+            conn_string.SslMode = MySqlSslMode.None;
             //#############################################################################################
             this.connection = new MySqlConnection(conn_string.ToString());
         }
@@ -64,7 +65,7 @@ namespace Finder.Core.Models
         /// Closes a connection to the database
         /// </summary>
         /// <returns>Boolean value if the connection was closed or not</returns>
-        private bool CloseConnection()
+        public bool CloseConnection()
         {
             try
             {
@@ -84,7 +85,7 @@ namespace Finder.Core.Models
         /// Insert statement
         /// </summary>
         /// <param name="query"></param>
-        public void QueryInsert(string query)
+        public void QueryInsert(String query)
         {
             if (this.OpenConnection() == true)
             {
@@ -98,13 +99,16 @@ namespace Finder.Core.Models
         /// Update statement
         /// </summary>
         /// <param name="query"></param>
-        public void QueryUpdate(string query)
+        public void QueryUpdate(String query)
         {
             if (this.OpenConnection() == true)
             {
-                var command = new MySqlCommand();
-                command.CommandText = query;
-                command.Connection = this.connection;
+                var command = new MySqlCommand
+                {
+                    CommandText = query,
+                    Connection = this.connection
+                };
+
                 command.ExecuteNonQuery();
                 this.CloseConnection();
             }
@@ -114,7 +118,7 @@ namespace Finder.Core.Models
         /// Delete statement
         /// </summary>
         /// <param name="query"></param>
-        public void QueryDelete(string query)
+        public void QueryDelete(String query)
         {
             if (this.OpenConnection() == true)
             {
@@ -129,7 +133,7 @@ namespace Finder.Core.Models
         /// </summary>
         /// <param name="tableName">Table name</param>
         /// <returns>Int value of counted columns</returns>
-        public int QueryColumnCount(string tableName)
+        public int QueryColumnCount(String tableName)
         {
             var count = 0;
             var query = "DESCRIBE " + tableName;
@@ -142,19 +146,19 @@ namespace Finder.Core.Models
                     reader = command.ExecuteReader();
                     count = reader.FieldCount;
                 }
+                this.CloseConnection();
                 return count;
             }
-            return count = -1;
-
+            this.CloseConnection();
+            return 0;
         }
 
-        public List<string> GetColumnNames(string tableName)
+        public List<string> GetColumnNames(String tableName)
         {
 
             var columnCount = this.QueryColumnCount(tableName);
 
             var columnNames = new List<string>();
-
 
             DataTable schema = null;
             if (this.OpenConnection() == true)
@@ -172,14 +176,38 @@ namespace Finder.Core.Models
                     columnNames.Add(col.ColumnName);
                 }
             }
+            this.CloseConnection();
             return columnNames;
         }
 
-        public static void test()
+        /// <summary>
+        /// Returns data from a select query as a list
+        /// </summary>
+        /// <param name="query">mysql query</param>
+        /// <returns>list filled with data</returns>
+        public List<object[]> GetData(string query)
         {
+            List<object[]> dataList = new List<object[]>();
+            if (this.OpenConnection() == true)
+            {
+                using (var schemaCommand = new MySqlCommand(query, this.connection))
+                {
+                    MySqlDataReader reader = schemaCommand.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        object[] tempRow = new object[reader.FieldCount];
+                        for (int i = 0; i < reader.FieldCount; i++)
+                        {
+                            tempRow[i] = reader[i];
+                        }
+                        dataList.Add(tempRow);
+                    }
+                    reader.Close();
+                }
 
+            }
+            this.CloseConnection();
+            return dataList;
         }
-
-
     }
 }

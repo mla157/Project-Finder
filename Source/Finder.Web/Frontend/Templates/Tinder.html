@@ -1,0 +1,44 @@
+﻿<!doctype html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <style>
+
+        body {
+            font-family: 'Helvetica-Neue', 'HelveticaNeue', arial, sans-serif;
+            color: #434343;
+        }
+
+        .tc-card-name {
+            font-weight: normal;
+        }
+
+        #main {
+            position: relative;
+            width: 320px;
+            height: 520px;
+            left: 50%;
+            margin-left: -160px;
+        }
+    </style>
+
+</head>
+
+<body>
+<div ng-if="showError == true" class="alert alert-danger" role="alert">
+    Leider gab es ein Fehler. Bitte versuchen Sie es später nocheinmal!
+</div>
+
+<div ng-if="showAlert == true" class="spinner">
+    <div class="cube1"></div>
+    <div class="cube2"></div>
+</div>
+    
+<div id="main"></div>
+<br/>    
+<br/> 
+</body>
+</html>

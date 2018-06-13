@@ -5,6 +5,89 @@
     <title></title>
 </head>
 <body>
+<div class="container">
+    <div class="span3 well">
+        <center>
+            <a href="#!Home"><img src="/Images/user_placeholder.png" name="aboutme" width="140" height="140" class="img-circle"></a>
+            <h3>{{user.firstName}} {{user.lastName}}</h3>
+        </center>
+    </div>
+</div>
+    
+<div class="col-md-12" ng-if="userSetPreferences == true">
+    <div class="update-nag">
+        <div class="update-split"><i class="glyphicon glyphicon-check"></i></div>
+        <div class="update-text">Vorlieben sind gesetzt!</div>
+    </div>
+</div>
+    
+<table class="table table-bordered" style="width: 100%">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Aktion</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-show="movies && movies.length > 0" ng-repeat="movie in movies">
+            <td>{{movie.titleName}}</td>
+            <td>{{movie.description}}</td>
+            <td>
+                <div class="btn btn-danger" ng-click="deleteMovieFromPlaylist(movie);">L&ouml;schen</div>
+            </td>
+        </tr>
+    <tr ng-show="!movies || movies.length == 0">
+        <td colspan="7">Sie haben keine Filme in der Watchlist.</td>
+    </tr>
+    </tbody>
+</table>    
 
+<style>
+    body {
+        margin-top: 10px;
+        background: #ffffff;
+    }
+
+    .update-nag {
+        display: inline-block;
+        font-size: 14px;
+        text-align: left;
+        background-color: #ffffff;
+        height: 40px;
+        -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.2);
+        box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+        margin-bottom: 10px;
+    }
+
+    .update-nag:hover{
+        cursor: pointer;
+        -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.4);
+        box-shadow: 0 1px 1px 0 rgba(0,0,0,.3);
+    }
+
+    .update-nag > .update-split{
+        background: #337ab7;
+        width: 33px;
+        float: left;
+        color: #ffffff!important;
+        height: 100%;
+        text-align: center;
+    }
+
+    .update-nag > .update-split > .glyphicon{
+        position:relative;
+        top: calc(50% - 9px)!important; /* 50% - 3/4 of icon height */
+    }
+    .update-nag > .update-split.update-success{
+        background: #5cb85c!important;
+    }
+
+    .update-nag > .update-text{
+        line-height: 19px;
+        padding-top: 11px;
+        padding-left: 45px;
+        padding-right: 20px;
+    }
+</style>
 </body>
-</html>

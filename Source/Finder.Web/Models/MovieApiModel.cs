@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Finder.Web.Models
+﻿namespace Finder.Web.Models
 {
     public class MovieApiModel
     {
@@ -12,5 +7,7 @@ namespace Finder.Web.Models
         public string description;
 
         public string releaseDate;
+
+        public string imageUrl;
     }
 }
