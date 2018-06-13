@@ -163,6 +163,7 @@
     <Compile Include="Controllers\Api\AuthenticationController.cs" />
     <Compile Include="Controllers\Api\MoviesController.cs" />
     <Compile Include="Controllers\Api\OverviewController.cs" />
+    <Compile Include="Controllers\Api\PlaylistsController.cs" />
     <Compile Include="Controllers\Api\UsersController.cs" />
     <Compile Include="Controllers\View\HomeController.cs" />
     <Compile Include="Global.asax.cs">
