@@ -13,10 +13,14 @@ namespace Finder.Web.Extensions
     {
         public static int QueryUserId(string username)
         {
+            if (username == null)
+            {
+                return -1;
+            }
             var databaseConnection = new DatabaseConnection();
             var queryData = databaseConnection.GetData($"SELECT iduser FROM user WHERE benutzername = '" + username + "'");
 
-            return (int) queryData[0].GetValue(0);
+                return (int)queryData[0].GetValue(0);
         }
 
         public static int QueryMovieId(string movieTitle)

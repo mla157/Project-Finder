@@ -18,15 +18,21 @@ namespace Finder.Web.Controllers.Api
         public HttpResponseMessage Patch(UserApiModel user)
         {
 
-                var queryData = this.databaseConnection.GetData($"SELECT passwort FROM user WHERE benutzername = '" + user.userName + "'");
+            var queryData = this.databaseConnection.GetData($"SELECT passwort FROM user WHERE benutzername = '" + user.userName + "'");
 
 
+
+            if (queryData.Count != 0)
+            {
                 if (queryData[0].GetValue(0).ToString() == user.password)
                 {
                     return this.Request.CreateResponse(HttpStatusCode.OK);
                 }
+            }
 
-                return this.Request.CreateResponse(HttpStatusCode.InternalServerError);
+
+
+            return this.Request.CreateResponse(HttpStatusCode.InternalServerError);
         }
         //Gets the whole user with <username> as parameter
         public HttpResponseMessage Get(string username)
@@ -34,11 +40,11 @@ namespace Finder.Web.Controllers.Api
             var queryData = this.databaseConnection.GetData($"SELECT benutzername, vorname, nachname FROM user WHERE benutzername = '" + username + "'");
 
             var returnUser = new UserApiModel()
-                             {
-                                 userName = queryData[0].GetValue(0).ToString(),
-                                 firstName = queryData[0].GetValue(1).ToString(),
-                                 lastName = queryData[0].GetValue(2).ToString()
-                             };
+            {
+                userName = queryData[0].GetValue(0).ToString(),
+                firstName = queryData[0].GetValue(1).ToString(),
+                lastName = queryData[0].GetValue(2).ToString()
+            };
 
             return this.Request.CreateResponse(HttpStatusCode.OK, returnUser);
         }
@@ -46,7 +52,7 @@ namespace Finder.Web.Controllers.Api
         //Checks if a user with that username exists and if not it writes the new user to the DB and creates a new playlist
         public HttpResponseMessage Post(UserApiModel user)
         {
-            var queryData = this.databaseConnection.GetData($"SELECT * FROM user WHERE benutzername = '" + user.userName +"'");
+            var queryData = this.databaseConnection.GetData($"SELECT * FROM user WHERE benutzername = '" + user.userName + "'");
             this.databaseConnection.CloseConnection();
 
             if (queryData.Count > 0)
