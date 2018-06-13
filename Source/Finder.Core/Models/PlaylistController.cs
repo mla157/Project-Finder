@@ -9,7 +9,7 @@ namespace Finder.Core.Models
     class PlaylistController
     {
         DatabaseConnection dbconnection = new DatabaseConnection();
-        
+
         /// <summary>
         /// Construktor
         /// </summary>
@@ -38,7 +38,7 @@ namespace Finder.Core.Models
                 // Movie already in playlist
                 return false;
             }
-        
+
          }
         /// <summary>
         /// Removes movie from the playlist of the user

@@ -12,12 +12,13 @@ namespace Finder.Web.Controllers.Api
 
     public class AuthenticationController : ApiController
     {
+        private readonly DatabaseConnection databaseConnection = new DatabaseConnection();
+
         //Check if the password is right
         public HttpResponseMessage Patch(UserApiModel user)
         {
-                var databaseConnection = new DatabaseConnection();
 
-                var queryData = databaseConnection.GetData($"SELECT passwort FROM user WHERE benutzername = '" + user.userName + "'");
+                var queryData = this.databaseConnection.GetData($"SELECT passwort FROM user WHERE benutzername = '" + user.userName + "'");
 
 
                 if (queryData[0].GetValue(0).ToString() == user.password)
@@ -30,8 +31,7 @@ namespace Finder.Web.Controllers.Api
         //Gets the whole user with <username> as parameter
         public HttpResponseMessage Get(string username)
         {
-            var databaseConnection = new DatabaseConnection();
-            var queryData = databaseConnection.GetData($"SELECT benutzername, vorname, nachname FROM user WHERE benutzername = '" + username + "'");
+            var queryData = this.databaseConnection.GetData($"SELECT benutzername, vorname, nachname FROM user WHERE benutzername = '" + username + "'");
 
             var returnUser = new UserApiModel()
                              {
@@ -46,10 +46,8 @@ namespace Finder.Web.Controllers.Api
         //Checks if a user with that username exists and if not it writes the new user to the DB and creates a new playlist
         public HttpResponseMessage Post(UserApiModel user)
         {
-            var databaseConnection = new DatabaseConnection();
-
-            var queryData = databaseConnection.GetData($"SELECT * FROM user WHERE benutzername = '" + user.userName +"'");
-            databaseConnection.CloseConnection();
+            var queryData = this.databaseConnection.GetData($"SELECT * FROM user WHERE benutzername = '" + user.userName +"'");
+            this.databaseConnection.CloseConnection();
 
             if (queryData.Count > 0)
             {
@@ -58,14 +56,13 @@ namespace Finder.Web.Controllers.Api
 
             try
             {
-                databaseConnection.QueryInsert($"INSERT INTO user (`benutzername`, `vorname`, `nachname`, `passwort`) VALUES (\'{user.userName}\', \'{user.firstName}\' , \'{user.lastName}\', \'{user.password}\')");
+                this.databaseConnection.QueryInsert($"INSERT INTO user (`benutzername`, `vorname`, `nachname`, `passwort`) VALUES (\'{user.userName}\', \'{user.firstName}\' , \'{user.lastName}\', \'{user.password}\')");
 
-                var queryUserId =
-                    databaseConnection.GetData($"SELECT iduser FROM user WHERE benutzername = '" + user.userName + "'");
+                var queryUserId = this.databaseConnection.GetData($"SELECT iduser FROM user WHERE benutzername = '" + user.userName + "'");
 
                 var userId = queryUserId[0].GetValue(0);
 
-                databaseConnection.QueryInsert($"INSERT INTO playlist (`User_idUser`) VALUES (\'{userId}\')");
+                this.databaseConnection.QueryInsert($"INSERT INTO playlist (`User_idUser`) VALUES (\'{userId}\')");
             }
             catch (Exception e)
             {

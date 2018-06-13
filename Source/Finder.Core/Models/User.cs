@@ -57,24 +57,24 @@ namespace Finder.Core.Models
 
         //Verify the user - entered password against a stored password
         private bool VerifyPassword(string passwordEntered)
-        {          
+        {
 
-            // Fetch the stored PASSWORD-value 
+            // Fetch the stored PASSWORD-value
             //string savedPasswordHash = DBContext.GetUser(u => u.UserName == user).Password;
             var savedPasswordHash = "";
 
-            // Extract the bytes 
+            // Extract the bytes
             var hashBytes = Convert.FromBase64String(savedPasswordHash);
 
-            // Get the salt 
+            // Get the salt
             var salt = new byte[16];
             Array.Copy(hashBytes, 0, salt, 0, 16);
 
-            // Compute the hash on the password the user entered 
+            // Compute the hash on the password the user entered
             var pbkdf2 = new Rfc2898DeriveBytes(passwordEntered, salt, 10000);
             var hash = pbkdf2.GetBytes(20);
 
-            //Compare the results 
+            //Compare the results
             for (var i = 0; i < 20; i++)
             {
                 if (hashBytes[i + 16] != hash[i])
