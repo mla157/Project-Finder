@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Finder.Core;
-
-namespace Finder.Web.Extensions
+﻿namespace Finder.Web.Extensions
 {
-    using System.Runtime.InteropServices;
     using Core.Models;
 
     public static class Extensions
