@@ -47,6 +47,23 @@ namespace Finder.Web.Controllers.Api
                     $"INSERT INTO Playlist_has_movie (`Movie_idMovie`, `Playlist_User_idUser`) VALUES (\'{movieId}\', \'{userId}\')");
             }
         }
+
+        public HttpResponseMessage Delete(PlaylistApiModel playlistApi)
+        {
+            try
+            {
+                var userId = Extensions.QueryUserId(playlistApi.username);
+
+                this.RemoveMovieFromPlaylist(userId, playlistApi.movieId);
+
+                return this.Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception e)
+            {
+                return this.Request.CreateResponse(HttpStatusCode.InternalServerError);
+            }
+        }
+
         /// <summary>
         /// Removes movie from the playlist of the user
         /// </summary>
@@ -57,6 +74,22 @@ namespace Finder.Web.Controllers.Api
             this.dbConnection.QueryDelete($"DELETE FROM Playlist_has_movie WHERE Playlist_User_idUser = '" + userId + "' AND Movie_idMovie = '" + movieId + "'");
 
         }
+
+        public HttpResponseMessage Get(string username)
+        {
+            try
+            {
+                var userId = Extensions.QueryUserId(username);
+
+                var returnData = this.ShowMoviePlaylist(userId);
+                return this.Request.CreateResponse(HttpStatusCode.OK, returnData);
+            }
+            catch (Exception e)
+            {
+                return this.Request.CreateResponse(HttpStatusCode.InternalServerError);
+            }
+        }
+
         /// <summary>
         /// Returns list of every Movie in the user's playlist
         /// </summary>
