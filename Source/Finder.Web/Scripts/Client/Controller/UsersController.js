@@ -102,12 +102,34 @@ function UsersController($scope, $http, UrlService)
             }).then(
             function success(response)
             {
-                console.log("Wurde gelöscht");
+                $.notify({
+                    // options
+                    icon: 'glyphicon glyphicon-ok',
+                    message: 'Der Film wurde von Ihrer persönlichen Watchlist gelöscht.'
+                }, {
+                    // settings
+                    type: 'success',
+                    offset: {
+                        x: 50,
+                        y: 80
+                    }
+                });
                 $scope.movies = [];
                 $scope.getPlaylist();
             },
             function error(response) {
-                console.log("Nicht gelöscht");
+                $.notify({
+                    // options
+                    icon: 'glyphicon glyphicon-remove',
+                    message: 'Der Film konnte nicht gelöscht werden.'
+                }, {
+                    // settings
+                    type: 'error',
+                    offset: {
+                        x: 50,
+                        y: 80
+                    }
+                });
             });
 
     };
