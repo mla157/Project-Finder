@@ -18,5 +18,13 @@ namespace Finder.Web.Extensions
 
             return (int) queryData[0].GetValue(0);
         }
+
+        public static int QueryMovieId(string movieTitle)
+        {
+            var databaseConnection = new DatabaseConnection();
+            var queryData = databaseConnection.GetData($"SELECT idMovie FROM movie WHERE title = '" + movieTitle + "'");
+
+            return (int)queryData[0].GetValue(0);
+        }
     }
 }

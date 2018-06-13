@@ -53,13 +53,15 @@ namespace Finder.Web.Controllers.Api
             }
         }
 
-        public HttpResponseMessage Delete(PlaylistApiModel playlistApi)
+        public HttpResponseMessage Post(PlaylistApiModel playlistApi)
         {
             try
             {
                 var userId = Extensions.QueryUserId(playlistApi.username);
 
-                this.RemoveMovieFromPlaylist(userId, playlistApi.movieId);
+                var movieId = Extensions.QueryMovieId(playlistApi.movieTitle);
+
+                this.RemoveMovieFromPlaylist(userId, movieId);
 
                 return this.Request.CreateResponse(HttpStatusCode.OK);
             }
