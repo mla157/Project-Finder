@@ -85,7 +85,7 @@
         /// Insert statement
         /// </summary>
         /// <param name="query"></param>
-        public void QueryInsert(String query)
+        public void QueryInsert(string query)
         {
             if (this.OpenConnection() == true)
             {
@@ -99,7 +99,7 @@
         /// Update statement
         /// </summary>
         /// <param name="query"></param>
-        public void QueryUpdate(String query)
+        public void QueryUpdate(string query)
         {
             if (this.OpenConnection() == true)
             {
@@ -118,7 +118,7 @@
         /// Delete statement
         /// </summary>
         /// <param name="query"></param>
-        public void QueryDelete(String query)
+        public void QueryDelete(string query)
         {
             if (this.OpenConnection() == true)
             {
@@ -133,7 +133,7 @@
         /// </summary>
         /// <param name="tableName">Table name</param>
         /// <returns>Int value of counted columns</returns>
-        public int QueryColumnCount(String tableName)
+        public int QueryColumnCount(string tableName)
         {
             var count = 0;
             var query = "DESCRIBE " + tableName;
@@ -153,7 +153,7 @@
             return 0;
         }
 
-        public List<string> GetColumnNames(String tableName)
+        public List<string> GetColumnNames(string tableName)
         {
 
             var columnCount = this.QueryColumnCount(tableName);
