@@ -166,7 +166,8 @@
     <Compile Include="Controllers\Api\PlaylistsController.cs" />
     <Compile Include="Controllers\Api\UsersController.cs" />
     <Compile Include="Controllers\View\HomeController.cs" />
-    <Compile Include="Extensions\Extensions.cs" />
+    <Compile Include="Extensions\Crypting.cs" />
+    <Compile Include="Extensions\Queries.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

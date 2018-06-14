@@ -10,8 +10,8 @@ namespace Finder.Web.Controllers.Api
     using System.Collections;
     using System.Web.WebPages;
     using Core.Models;
-    using Models;
     using Extensions;
+    using Models;
 
     public class PlaylistsController : ApiController
     {

@@ -1,37 +1,19 @@
-﻿using System;
-using System.Security.Cryptography;
-
-
-namespace Finder.Core.Models
+﻿namespace Finder.Web.Extensions
 {
-    //Claass for User creation
-    public class User
+    using System;
+    using System.Security.Cryptography;
+    using Core.Models;
+
+    public static class Crypting
     {
-        private string Firstname { get; set; }
-        private string Lastname { get; set; }
-        private string Email { get; set; }
-        private string Password { get; set; }
-        private DateTime Birthdate { get; set; }
-
-        //empty constructor
-        public User()
+        public static string EncryptPassword(string password)
         {
-
-        }
-
-        //Constructor with initial upload to DB
-        public User(string fN, string lN, string email, string Password, DateTime birth)
-        {
-            this.Firstname = fN;
-            this.Lastname = lN;
-            this.Email = email;
-
             /////////////////////////////CRYPTO PASSWORD///////////////////////////////////
             //STEP 1 Create the salt value with a cryptographic PRNG:
             byte[] salt;
             new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
             // STEP 2 Create the Rfc2898DeriveBytes and get the hash value:
-            var pbkdf2 = new Rfc2898DeriveBytes(Password, salt, 10000);
+            var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 10000);
             var hash = pbkdf2.GetBytes(20);
             //STEP 3 Combine the salt and password bytes for later use:
             var hashBytes = new byte[36];
@@ -41,27 +23,19 @@ namespace Finder.Core.Models
             var savedPasswordHash = Convert.ToBase64String(hashBytes);
             ///////////////////////////////////////////////////////////////////////////////
 
-            this.Password = savedPasswordHash;
-            this.Birthdate = birth;
+            return savedPasswordHash;
 
-            this.Push();
-        }
-
-        //Push User to DB
-        private void Push()
-        {
-            var query = $@"INSERT INTO table_name (column1, column2, column3, ...) VALUES({this.Firstname}, {this.Lastname}, {this.Email}, {this.Password}, {this.Birthdate});";
-            var q = new DatabaseConnection();
-            q.QueryInsert(query);
         }
 
         //Verify the user - entered password against a stored password
-        private bool VerifyPassword(string passwordEntered)
+        public static bool VerifyPassword(string passwordEntered, string username)
         {
 
             // Fetch the stored PASSWORD-value
             //string savedPasswordHash = DBContext.GetUser(u => u.UserName == user).Password;
-            var savedPasswordHash = "";
+            var databaseConnection = new DatabaseConnection();
+            var queryData = databaseConnection.GetData($"SELECT passwort FROM user WHERE benutzername = '" + username + "'");
+            var savedPasswordHash = queryData[0].GetValue(0).ToString();
 
             // Extract the bytes
             var hashBytes = Convert.FromBase64String(savedPasswordHash);

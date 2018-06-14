@@ -7,6 +7,34 @@ TinderController.$inject = ["$scope", "$http", "UrlService"];
 function TinderController($scope, $http, UrlService) {
     $(document).ready(function ()
     {
+        if (sessionStorage.loggedInUser !== "")
+        {
+            $.notify({
+                // options
+                icon: 'glyphicon glyphicon-thumbs-up',
+                message: 'Zum liken des Films nach rechts wischen'
+            }, {
+                // settings
+                type: 'info',
+                offset: {
+                    x: 50,
+                    y: 80
+                }
+            });
+            $.notify({
+                // options
+                icon: 'glyphicon glyphicon-thumbs-down',
+                message: 'Bei Nichtgefallen nach links wischen'
+            }, {
+                // settings
+                type: 'info',
+                offset: {
+                    x: 50,
+                    y: 80
+                }
+            });            
+        }
+
         $scope.showError = false;
         $scope.showAlert = true;
 

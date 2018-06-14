@@ -7,6 +7,7 @@ namespace Finder.Web.Controllers.Api
 {
     using System.Web.Management;
     using Core.Models;
+    using Extensions;
     using Models;
     using Newtonsoft.Json;
 
@@ -17,20 +18,15 @@ namespace Finder.Web.Controllers.Api
         //Check if the password is right
         public HttpResponseMessage Patch(UserApiModel user)
         {
-
-            var queryData = this.databaseConnection.GetData($"SELECT passwort FROM user WHERE benutzername = '" + user.userName + "'");
-
-
-
-            if (queryData.Count != 0)
+            if (user != null)
             {
-                if (queryData[0].GetValue(0).ToString() == user.password)
+                var passwordVerfied = Crypting.VerifyPassword(user.password, user.userName);
+
+                if (passwordVerfied == true)
                 {
                     return this.Request.CreateResponse(HttpStatusCode.OK);
                 }
             }
-
-
 
             return this.Request.CreateResponse(HttpStatusCode.InternalServerError);
         }
@@ -62,7 +58,9 @@ namespace Finder.Web.Controllers.Api
 
             try
             {
-                this.databaseConnection.QueryInsert($"INSERT INTO user (`benutzername`, `vorname`, `nachname`, `passwort`) VALUES (\'{user.userName}\', \'{user.firstName}\' , \'{user.lastName}\', \'{user.password}\')");
+                var encryptedPassword = Crypting.EncryptPassword(user.password);
+
+                this.databaseConnection.QueryInsert($"INSERT INTO user (`benutzername`, `vorname`, `nachname`, `passwort`) VALUES (\'{user.userName}\', \'{user.firstName}\' , \'{user.lastName}\', \'{encryptedPassword}\')");
 
                 var queryUserId = this.databaseConnection.GetData($"SELECT iduser FROM user WHERE benutzername = '" + user.userName + "'");
 
