@@ -1,12 +1,33 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-}
+   }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+}
+
+.bg {
+    background: url("../Images/trianglify.png");
+    background-size: cover;
+    position: fixed;
+    width: 110%;
+    min-height: 100%;
+    height: auto; /*same height as jumbotron */
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.jumbotron {
+    margin-bottom: 0px;
+    height: auto;
+    min-height: 100%;
+    color: white;
+    text-shadow: black 0.3em 0.3em 0.3em;
+    background: transparent;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -121,3 +142,4 @@ textarea {
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
     display: none !important;
 }
+
