@@ -211,8 +211,14 @@ CREATE TABLE IF NOT EXISTS `playlist` (
   CONSTRAINT `fk_Playlist_User1` FOREIGN KEY (`User_idUser`) REFERENCES `user` (`idUser`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table finderdb.playlist: ~4 rows (approximately)
+-- Dumping data for table finderdb.playlist: ~0 rows (approximately)
 /*!40000 ALTER TABLE `playlist` DISABLE KEYS */;
+INSERT INTO `playlist` (`User_idUser`, `playlistCreated`) VALUES
+	(17, NULL),
+	(18, NULL),
+	(19, NULL),
+	(20, NULL),
+	(21, NULL);
 /*!40000 ALTER TABLE `playlist` ENABLE KEYS */;
 
 -- Dumping structure for table finderdb.playlist_has_movie
@@ -226,8 +232,12 @@ CREATE TABLE IF NOT EXISTS `playlist_has_movie` (
   CONSTRAINT `fk_Movie_has_Playlist_Playlist1` FOREIGN KEY (`Playlist_User_idUser`) REFERENCES `playlist` (`User_idUser`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table finderdb.playlist_has_movie: ~15 rows (approximately)
+-- Dumping data for table finderdb.playlist_has_movie: ~0 rows (approximately)
 /*!40000 ALTER TABLE `playlist_has_movie` DISABLE KEYS */;
+INSERT INTO `playlist_has_movie` (`Movie_idMovie`, `Playlist_User_idUser`) VALUES
+	(48, 17),
+	(49, 17),
+	(50, 17);
 /*!40000 ALTER TABLE `playlist_has_movie` ENABLE KEYS */;
 
 -- Dumping structure for table finderdb.user
@@ -246,8 +256,14 @@ CREATE TABLE IF NOT EXISTS `user` (
   UNIQUE KEY `Benutzername_UNIQUE` (`benutzername`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
--- Dumping data for table finderdb.user: ~4 rows (approximately)
+-- Dumping data for table finderdb.user: ~0 rows (approximately)
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` (`idUser`, `benutzername`, `vorname`, `nachname`, `geburtsdatum`, `passwort`, `preference`, `userCreated`, `userChanged`) VALUES
+	(17, 'maxleonalbrecht', 'Max', 'Albrecht', '0000-00-00', '9vFDk/HIUelgkA7TFOWOQor4ngHkMkJesT+99yeCadNgKgy6', '1', '2018-06-13 23:58:23', '2018-06-13 23:58:23'),
+	(18, 'test', 'test', 'test', '0000-00-00', 'ZEwRnjPB4Diz91MsLZRf4QDIgAYf65fls41vtXA9LycDUzpF', NULL, '2018-06-14 00:06:55', '2018-06-14 00:06:55'),
+	(19, '1', '1', '1', '0000-00-00', 'je/5JNFSYX6F3L8Bv4TSEtyVVthjrVx0XglEvPWQNR2Z2p4Q', NULL, '2018-06-14 00:14:29', '2018-06-14 00:14:29'),
+	(20, '2', '2', '2', '0000-00-00', 'Ksh+kvt6/sLLPI+wBuaZwCw/ORd1ogIXgGP4uJ18PF9Tnppj', NULL, '2018-06-14 00:16:52', '2018-06-14 00:16:52'),
+	(21, '3', '3', '3', '0000-00-00', 'OJQQLXL4WOHc1TcY9g+2XKHSONLpeAHcGvJiXd9feGSlR7j+', NULL, '2018-06-14 00:17:15', '2018-06-14 00:17:15');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 -- Dumping structure for table finderdb.watchlist

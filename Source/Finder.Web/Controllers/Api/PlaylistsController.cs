@@ -24,8 +24,6 @@ namespace Finder.Web.Controllers.Api
                 var userId = Extensions.QueryUserId(playlistApi.username);
 
                 this.AddMovieToPlaylist(userId, playlistApi.movieId);
-
-                //If the queryResult is positive it return HTTPStatusCode.Ok else 500
                 return this.Request.CreateResponse(HttpStatusCode.OK);
             }
             catch (Exception e)
